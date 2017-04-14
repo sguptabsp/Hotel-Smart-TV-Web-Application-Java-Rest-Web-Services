@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>Your Loyalty Points</title>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="sliding_effect.js"></script>
+	<style type="text/css">
+div.img
+{
+  margin: 2px;
+  height: auto;
+  width: auto;
+  float: left;
+  text-align: center;
+}	
+p.main
+{
+width:650px; 
+word-wrap:break-word;
+}
+</style>
+
+<script type="text/javascript">
+function onDisplay(val)
+{   
+	//document.getElementById("messageId").innerHTML="Dear John Miller You Have Redeemed Your Points Your balance points is 1200";
+	/*if(s==a)
+	{
+	document.getElementById("messageId").innerHTML="Dear John Miller You Have Redeemed Your Points Your balance points is 1200";
+	return false;
+	}
+	else if(s==b)
+	{
+		document.getElementById("messageId").innerHTML="Dear John Miller You Have Redeemed Your Points Your balance points is 1800";
+		return false;
+	}
+	else if(s==c)
+	{
+		document.getElementById("messageId").innerHTML="Dear John Miller You Have Redeemed Your Points Your balance points is 850";
+		return false;
+		}*/
+
+		 if(val=='b1')
+		 { 
+		     document.getElementById("messageId").innerHTML="You Have Redeemed Your Points";
+		     return false;
+		  }
+		  if(val=='b2')
+		 { 
+		     document.getElementById("messageId").innerHTML=" second You Have Redeemed Your Points";
+		     return false;
+		  }
+		return false;
+	}
+</script>	
+	</head>
+	<body onload="">
+	<div class="img">
+ <a target="_blank" href="loyalty-points1.htm"><img src="loyalty-points1.jpg" alt="loyalty-points" width="1300" height="180" /></a>
+</div>
+	 		<div id="navigation-block">
+        	<img src="background.jpg" id="hide" />
+            <h2><span>Your Loyalty Points</span></h2>
+            
+            <ul id="sliding-navigation">
+                <li class="sliding-element"><h3>Different Loyalty Transactions</h3></li>
+                <li class="sliding-element"><a href="http://localhost:8080/LoyaltyPoints2/demo1.html" target="_blank">Earn Points</a></li>
+                 <li class="sliding-element"><a href="http://localhost:8080/LoyaltyPoints2/demo2.html" target="_blank">Redeem Points</a></li>
+                  <li class="sliding-element"><a href="http://localhost:8080/LoyaltyPoints2/demo3.html" target="_blank">Purchase Points</a></li>
+            </ul>
+        </div>
+<img src="images/carlogo.jpg" alt="car" align="right" style=margin-right:250px/>
+<h3 align="left" style=color:#FF9966;margin-left:280px;>Rental Cars</h3>
+<p  align="justify" class="main" style=margin-right:250px>From free upgrades to free one-week rentals, HHonors car rental partners help give you the most mileage for your HHonors points. To redeem HHonors points for a Car Rental reward, please select the Car Rental Reward of your choice below and contact the Hilton Reservations and Customer Care office nearest you. Alternatively, book online for instant redemption with Sixt Car Rental.
+</p>
+<form name="CarRental" >
+<div style="margin: 50px 0px 20px 225px; ">
+<table align="center" border="1" cellpadding="5">
+<tr>
+<th>Sr. No.</th>
+<th>Service provider</th>
+<th>Service Plan</th>
+<th>Points</th>
+<th>Redeem Points</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Avis</td>
+<td>1Weekend(Fullday)</td>
+<td>1500</td>
+<td align="center">
+<input type="button" name="b1" id="b2" value="Redeem" onclick="onDisplay("b1");"/>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Budget</td>
+<td>2Weekend(Fullday)</td>
+<td>2800</td>
+<td align="center"><input type="button" id="b2" "name="b2" value="Redeem" onclick="onDisplay("b2");"/></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Alamo</td>
+<td>5Weekends(fullday)</td>
+<td>16000</td>
+<td align="center"><input type="button" name="b2" id="b3 "value="Redeem" onclick="onDisplay("b3");"/></td>
+</tr>
+<tr>
+<td>4</td>
+<td>National</td>
+<td>3Weekend(Fullday)</td>
+<td>20000</td>
+<td align="center"><input type="button" name="b2" value="Redeem" onclick="onDisplay();"/></td>
+</tr>
+</table>
+<div id="messageId" align ="center" style=" font-family: verdana; font-size :14px; color:#FFFFFF; font-weight: bold;"></div>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="en" class="ie ie6 lt7 lt8 lt9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if IE 7]> <html lang="en" class="ie ie7 lt8 lt9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie ie8 lt9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie ie9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><!--<![endif]--><head>
+
+<html>
+<head>
+	
+	<meta name="description" content="The Slidorion is a great new jQuery plugin built to combine an image slider and an accordion. Accompanied by a range of features and effects, the Slidorion a fantastic and slick plugin that is compatible with all browsers.">
+	<meta name="author" content="Ben Holland">
+	
+	<title>Delhi Restaurant Information</title>
+	
+	
+    <link rel="stylesheet" type="text/css" media="all" href="common.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="indexPageBundle.css" />
+    <style>@media screen and (max-width: 960px){body{padding:0;}div.header{position:relative;}.headerBorders{display:none;}}</style>
+	
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/slidorion.css" />
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+    <script src="js/jquery.slidorion.min.js"></script>
+    <script type="text/javascript">
+    function display()
+    {
+     var location = document.getElementById("location").value;
+     var category = document.getElementById("category").value;
+     var frm = eval("document.forms['searchForm']");
+     if(location == 'Delhi' && category == 'Restaurant')
+     {
+       frm.action="delhi_resturants.html";
+     }
+     frm.submit();
+    }
+    </script>
+	
+    <script>
+	$(function() {
+		$('#slidorion').slidorion({
+			first: 2,
+			easing: 'easeInOutCubic',
+			effect: 'random'
+		});
+	});
+	</script>
+	
+</head>
+
+<body class="homepagePage">
+
+<div class="headerGlow"></div>
+<div class="brand header">
+<div class="nav">
+<div class="module gutters clearfix">
+<ul class="left content">
+<li><a name="wiki" id="wiki" title="Wikipedia" href="http://en.wikipedia.org/wiki/Delhi" style="color:#D0D0D0">Wikipedia</a></li>
+<li><a name="POI" id="POI" title="Place Of Interest" style="color: #D0D0D0" href="http://www.tourisminindia.com/city/Delhi.aspx">Place Of Interest</a></li>
+<li><a name="taxi" id="taxi" title="Taxi Services" style="color: #D0D0D0" href="http://www.megacabs.com/">Taxi Services</a></li>
+<li><a name="restaurant" id="restaurant" title="Restaurants" style="color: #D0D0D0" href="http://bookmyrestaurant.co.in/city-Delhi">Restaurants</a></li>
+<li><a name="justdial" id="justdial" title="Just Dial" style="color: #D0D0D0" href="http://justdial.com/Delhi">Just Dial</a></li>
+</ul>
+</div>
+</div>
+<div class="headerSearch ">
+<form id="searchForm" class="module row gutters" name="searchForm" >
+<input type="hidden" name="ref_uri" value="/listings" />
+<div class="unit logo">
+<a name="homepage.topnav.1.gingerLogo" id="headerGinger.logo" href="demo.html" title="Ginger City Search">
+<img src="img/gingerogo.jpg" width="186" height="47" alt="Citysearch" />
+</a>
+<a name="homepage.topnav.1.citysearchLogo" id="header.logo" href="/" title="Chicago, IL Metro Citysearch">
+<img src="logo_citysearch_186x47.png" width="186" height="47" alt="Citysearch" />
+</a>
+</div>
+<div class="left">
+<div id="whatField" class="selects">
+<select name= "category" id = "category" style="background-color:#8a939a; border-color:#8a939a; border-bottom-width: 0px; width:200px; ">
+    <option value="category" selected="selected">--category--</option>
+	<option value="Wikipedia">Wikipedia</option>
+	<option value="Place of Interest">Place of Interest</option>
+	<option value="Taxi Services">Taxi Services</option>
+	<option value="Restaurant">Restaurant</option>
+	<option value="Just Dial">Just Dial</option>
+</select>
+</div>
+</div>
+<div class="left">
+<div id="whereField" class="selects">
+<select name= "loaction" id = "location" style="background-color:#8a939a; border-color:#8a939a; border-bottom-width: 0px; width:150px; ">
+    <option value="City" selected="selected">--City--</option>
+	<option value="Ahmedabad">Ahmedabad</option>
+	<option value="Bangalore">Bangalore</option>
+	<option value="Chennai">Chennai</option>
+	<option value="Delhi">Delhi</option>
+	<option value="Goa">Goa</option>
+	<option value="Mumbai">Mumbai</option>
+	<option value="Pune">Pune</option>
+</select>
+</div>
+<button title="Search"  type="submit" name="" class="headerGoButton" onclick="displayLinks()"><span class="searchIcon hideText">Go!</span></button>
+</div>
+
+</form>
+
+</div>
+</div>
+	
+	<div id="header"><h1></h1></div>
+	<div id="slidorion">
+		
+		<div id="slider">
+			<div id="slide1" class="slide">
+				<img src="img/index_park_balluchi_04.jpg" width="488" height="400" />
+			</div>
+			<div id="slide2" class="slide">
+				<img src="img/enter3.gif" width="488" height="400" />
+			</div>
+			<div id="slide3" class="slide">
+				<img src="img/karim_hotel.jpg" width="488" height="400" />
+			</div>
+			<div id="slide4" class="slide">
+				<img src="img/barbeque.jpg" width="488" height="400" />
+			</div>
+			<div id="slide5" class="slide">
+				<img src="img/zen.jpg" width="488" height="400" />
+			</div>
+		</div>
+		
+		<div id="accordion">
+			<div class="link-header">Park Balluchi</div>
+			<div class="link-content">
+				<p><strong>Park Balluchi</strong> Restaurant,is a famous place in Delhi. It is loacted in Hauz Khas Village and serves Afghani, North Indian, Frontier. Check out the site for more information.</p>
+				<a href="http://www.parkballuchi.com/">More Information</a>
+			</div>
+			<div class="link-header">The Yum Yum Tree</div>
+			<div class="link-content">
+				<p>Spread over 10,000 square feet on a single floor, 'The Yum Yum Tree’ at the Community Centre, New Friends Colony offers Contemporary Chinese Cuisine & Signature Oriental Street Food that is carefully blended with innovative twists to create an experience that is familiar and yet fresh.</p>
+				<a href="http://www.theyumyumtree.in/overview.asp">More Information</a>
+			</div>
+			<div class="link-header">KARIM'S</div>
+			<div class="link-content">
+				<p>Leading non vegetarian food chain that is highly popular because of its exotic spices, delicate herbs with vegetables or meat.</p>
+				<a href="http://www.karimhoteldelhi.com/">More Information</a>
+			</div>
+			<div class="link-header">Barbeque Nation</div>
+			<div class="link-content">
+				<p><strong>Barbeque Nation</strong> brings the concept of a prefix menu and a live grill to India for the first the time. The restaurant offers an option where customers can make their food on their personal grills, which are embedded on each table. The variety in the starters and the main course is rotated almost daily,making this place even more exciting.</p>
+				<a href="http://www.barbeque-nation.com/">More Information</a>
+			</div>
+			<div class="link-header">Zen</div>
+			<div class="link-content">
+				<p><strong>Zen</strong> is a place designed to stir your senses with tantalizing traditional Chinese and Japanese Cuisine complemented by a colourful, vivacious setting in two floors in the heart of New Delhi-Connaught Place. It is place, where every need is met with style and class, and where the guests are enveloped in an elegant yet lively atmosphere.</p>
+				<a href="http://www.zenrestaurant.in/">More Information</a>
+			</div>
+		</div>
+		
+	</div>
+	
+</body>
+
+</html>

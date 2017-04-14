@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="js1/jquery-1.4.4.min.js"></script>	
+
+
+<SCRIPT type="text/javascript">
+	//document.addEventListener('keypress', sendButtonPressed, true);
+	function sendButtonPressed(e)
+	{
+	var key_code = event.keyCode;
+	var v_key    = map_key(key_code);
+	if (v_key == 27) //key escape to show weather+news
+	{	
+	close_window();
+	e.returnValue=false;
+	}	
+	}
+
+	function close_window()
+	{
+	FrameworkPlugin.tcs_loadApp('/demo/stb/html-apps/apps/settings/settings.html');
+	return;
+	}
+
+	var state = 0;
+	function gup( url, name )
+	{
+	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
+	var regexS = "[\\?&]"+name+"=([^&#]*)"; 
+	var regex = new RegExp( regexS );  
+	var results = regex.exec(url);//regex.exec( window.location.href );  
+	if( results == null )   
+	return "";  
+	else   
+	return results[1];
+	}	
+    
+	$(document).ready(function () {
+
+             testService();
+
+     });
+
+   function testService()
+                { //alert("in test service()");
+                    $.ajax(
+                    {
+                        dataType: 'json',
+                        headers: {
+                            Accept:"application/json",
+                            "Access-Control-Allow-Origin": "*"
+                        }, 
+                        type:'GET',
+                        url:'http://172.17.196.224:8080/RestWebService/rest/getInvoiceJson?reserID=16030';
+                        success: function(data)
+                        {
+                            alert("data"+data.Roomno);
+							document.getElementById("dispRoomId").innerHTML = data.Roomno;
+							//document.writeln("Room no : " + data.Roomno);
+                            //document.writeln("CheckIndate : " + data.CheckIndate);
+                           // document.writeln("CheckOutdate : " + data.CheckOutdate);
+							//document.writeln("ReservationID : " + data.ReservationID);
+							document.getElementById("dispAmount").innerHTML = data.Amount;
+							document.getElementById("dispTotal").innerHTML = data.Total;
+                        },
+                        error: function(data)
+                        {
+                            alert("error");
+                        }
+                    });
+                }
+
+
+	function onSuccess() { 	
+	//var urlSS = 'http://172.16.176.47:9090/pfmproject/SpentSummary.jsp?partyid=4&dStart=09/01/2010&dEnd=10/31/2010&callback=onSpent';
+	var urlInvoice = 'http://172.17.196.224:8080/RestWebService/rest/getInvoiceJson?reserID=16030';
+    alert(urlInvoice);
+	//state = gup( window.location.href, 'param');
+	$.getScript(urlInvoice);
+	  alert("after");
+	}
+	var total=0;
+	var tax =0;
+	var gTotal =0;
+	function onInvoice(data) {
+    alert("data");
+	var html = "<table border='01px'>"; //<table cellspacing='10' cellpadding='5' align='center'><tr bgcolor='#26a4e6' align='center' style='color:#f5f5f5;'><td><b>Category</td><td><b>Spent Amount</td></tr>
+	var i;
+	for(i=0; i<data.totalCount; i++) { 
+	html += "<tr><td width='540px' align='left' >"+ data.folioDetailsModel[i].conceptDesc + " </td><td width='250px' align='center' >"+ data.folioDetailsModel[i].serviceDate + " </td><td width='200px' align='center'>"+ data.folioDetailsModel[i].amount +"</td></tr>";
+	total=total+parseFloat(data.folioDetailsModel[i].amount);
+
+	}
+	html += "</table>";
+	document.getElementById("invoiceDisp").innerHTML = html;
+
+
+	document.getElementById("dispGuest").innerHTML = data.Roomno;
+	document.getElementById("dispRsrvNo").innerHTML = data.folioDetailsModel[0].reservationId;
+	document.getElementById("dispRsrvStatus").innerHTML = data.folioDetailsModel[0].reservationStatus;
+	document.getElementById("dispRoomId").innerHTML = data.folioDetailsModel[0].roomId;
+
+	total=total.toFixed(2);
+	document.getElementById("dispSubTotal").innerHTML=total;
+	document.getElementById("dispTotal").innerHTML=total;
+	document.getElementById("dispTax").innerHTML=0;
+
+	
+
+	//calculating tax and total amount 
+
+	//tax = parseFloat(total)*(12/100);
+	//gTotal = parseFloat(total).toFixed(2)+parseFloat(tax);
+
+	
+	//alert(html);
+	//eval("progData ="+xhr.responseText);	
+	//alert(progData.totalCount);
+
+	//document.getElementById("Heading").innerHTML = "Spent Summary";
+	}	
+
+</SCRIPT>	
+
+<title>Company Invoice</title>
+	<style type="text/css">
+	body {
+	font: 90%/ 1.4 Verdana;
+	background :#ffffff;
+	margin-top : 10px;
+	margin-left : 20px;
+	padding: 100;
+	color: #000;
+	background: #ffffff;
+	margin-top: 10px;
+	margin-left: 20px;
+	}
+	</style>
+
+</head>
+<body onload="">
+	<table border="1" cellspacing="2" width="600px">
+	<tr>
+	<td width="600px">
+	<center>
+	<table border="0" cellspacing="0">
+
+	<tr>
+	<td colspan="2" align="right"><sub> <img alt="" src="images/TATA-logo1_jpg.JPG" height="50px" width="80px" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </sub></td>
+	</tr>
+	<tr >
+	<td colspan="2" align="right" valign="bottom">
+	<font size="5" color="#828282" style="font-style: italic"><b>GUEST FOLIO DETAILS</b>
+	&nbsp;&nbsp;</font>
+	<hr />
+	</td>
+	</tr>
+
+	<tr>
+	<td align="left" height="60px" width="350px">&nbsp;&nbsp;
+	<table border="0" align="left">
+	<tr >
+	<!--<td ><font size="5" color="blue" face="verdana"
+	style="font-style: italic"><b> My HOTEL </b></font></td>
+	-->
+	<td><sub> <img alt="" src="images/HSP-logo_jpg.JPG" height="60px" width="170px"> </sub></td>
+	</tr>
+	<tr>
+	<td align="center"><sup><font size="3" color="blue" face="verdana">Service
+	Guaranteed</font></sup></td>
+	</tr>
+	<!--<tr>
+	<td height=10px></td>
+	</tr>
+	<tr>
+	<td>Kensington B-Wing, Powai</td>
+	</tr>
+	<tr>
+	<td>City:Mumbai,Maharashtra</td>
+	</tr>
+	<tr>
+	<td>Ph:022-12345678</td>
+	</tr>
+	<tr>
+	<td>Fax:022-1418368127</td>
+	</tr>
+	--></table>
+	</td>
+	<td width="350px">
+	<!--				<table border="0">-->
+	<!--					<tr>-->
+	<!--						<td>-->
+	<table width="253" border="0" align="left">
+	<tr>
+	<td width="175" align="left">Guest Name :&nbsp;&nbsp;</td>
+	<td width="49" align="left" style="font-size: small"><div id="dispGuest"></div></td>
+	</tr>
+	<tr>
+	<td  align="left">Room :&nbsp;&nbsp;</td>
+	<td style="font-size: small" align="left"><div id="dispRoomId"></div></td>
+	</tr>
+	<tr>
+	<td align="left">Reservation No :&nbsp;&nbsp;</td>
+	<td align="left" style="font-size: small"><div id="dispRsrvNo"></div></td>
+	</tr>
+	<tr>
+	<td align="left">Reservation Status :&nbsp;&nbsp;</td>
+	<td align="left" style="font-size: small"><div id="dispRsrvStatus"></div> <div id="disp"></div> </td>
+	</tr>
+	<!--<tr>
+	<td valign="top" align="right">Arrival Date :&nbsp;&nbsp;</td>
+	<td align="left" style="font-size: small">20.01.2011</td>
+	</tr>
+	<tr>
+	<td align="right">Departure Date :&nbsp;&nbsp;</td>
+	<td align="left" style="font-size: small">21.01.2011</td>
+	</tr>-->
+	</table>
+	<!--						</td>-->
+	<!--					</tr>-->
+	<!--				</table>-->
+	</td>
+	</tr>
+
+	<tr>
+	<td colspan="2">
+	<table border="0" cellspacing="2">
+	<tr bgcolor="#e0e0e0">
+	<td width="540" align="center" bgcolor="#33CCFF"><b>Description</b></td>
+	<td width="250" align="center" bgcolor="#33CCFF"><b>Service Date</b></td>
+	<td width="200" align="left" bgcolor="#33CCFF"><b>Amount</b><font size="2">(Rs)</font> </td>
+	<td width="200" align="left" style="font-size: small"><div id="dispAmount"></div></td> 
+	<!--<td align="center"><b>Currency</b></td> -->
+	</tr>
+
+	<tr>
+	<td colspan="3">
+	<div id="invoiceDisp">
+	</div>
+	</td>
+	</tr>
+
+	<tr bgcolor="#e0e0e0">
+	<td rowspan="4" align="left" bgcolor="#FFFFFF" font size="2">All payments can be made through Cash, Credit Card or Cheque.
+ <br>
+	<br></td>
+	<td align="right" bgcolor="#FFFFFF">SUBTOTAL</td>
+	<td align="center" bgcolor="#e0e0e0"><div id="dispSubTotal"></div></td>
+	</tr>
+	<tr bgcolor="#e0e0e0">
+	<td align="right" bgcolor="#FFFFFF">OTHERS</td>
+	<td align="center"><div id="dispTax"></div></td>
+	</tr>
+	<tr bgcolor="#e0e0e0">
+	<td align="right" bgcolor="#FFFFFF"><b>TOTAL</b></td>
+	<td align="center"><div id="dispTotal"></div></td>
+	</tr>
+	<tr bgcolor="#e0e0e0">
+	<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+	<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+	</tr>
+
+	</table>
+	</td>
+	</tr>
+
+	<tr>
+	<td colspan="4"><br />
+	<center>
+	<font size="2" color="grey" face="verdana" style="font-style:">Thank you for your business. Look forward to serve you in future.</font>
+	</center></td>
+	</tr>
+
+	</table>
+	</td>
+	</tr>
+
+	</table>
+	</center>
+	</td>
+	</tr>
+	</table>
+	
+</body>
+</html>

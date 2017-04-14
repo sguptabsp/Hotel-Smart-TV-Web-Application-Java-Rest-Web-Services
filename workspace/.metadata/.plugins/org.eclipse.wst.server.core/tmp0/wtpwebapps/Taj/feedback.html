@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Feedback Form</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+<script src="js/jquery.js"></script>
+<script src="js/keynav.js"></script>
+<script src="js/sliding_effect.js"></script>
+<script src="js/interface.js"></script>
+<script type="text/javascript" src="datetimepicker_css.js"></script>
+
+<script type="text/javascript">
+function call(text)
+{
+	var name=new Array("gingerhotel","facebook","twitter","linkedin","youtube","gingerfeedback","indiapress",
+			"onlinenewspapers","newspapers","allnewspapers");
+	var link=new Array("http://www.gingerhotels.com/",
+			"http://www.facebook.com",
+			"http://www.twitter.com",
+			"http://www.linkedin.com",
+			"http://www.youtube.com",
+			"http://www.gingerhotels.com/contactus/Customer_Feedback.aspx",
+			"http://www.indiapress.org/index.php/",
+			"http://www.onlinenewspapers.com/",
+			"http://newspapers.com/",
+			"http://allnewspapers.com/");
+	for(var i=0;i<name.length;i++)
+	{
+		if(text==name[i])
+		{
+			//window.location=link[i];
+			  //alert("link"+link[i]);
+			  window.open(link[i],'_blank');
+		}
+	}
+}
+function callhref(text)
+{
+	//alert(text);
+	if(text=="index1")
+	{
+		window.location.href=text+".jsp";
+	}
+	else	
+		window.location.href=text+".html";
+		//window.open(text+".html",'_blank');
+	//window.location.href=location of file on server
+}
+</script>
+<script type="text/javascript">
+	
+	$(document).ready(
+		function()
+		{
+			
+			$('#dock2').Fisheye(
+				{
+					maxWidth: 60,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container2',
+					itemWidth: 80,
+					proximity: 80,
+					alignment : 'left',
+					valign: 'bottom',
+					halign : 'center'
+				}
+			)
+		}
+	);
+
+</script>
+<SCRIPT type="text/javascript">
+
+	var state = 0;
+	function gup( url, name )
+	{
+	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
+	var regexS = "[\\?&]"+name+"=([^&#]*)"; 
+	var regex = new RegExp( regexS );  
+	var results = regex.exec(url);//regex.exec( window.location.href );  
+	if( results == null )   
+	return "";  
+	else   
+	return results[1];
+	}	
+	
+</SCRIPT>	
+
+<script type="text/javascript">
+	function submitfeedback(form)
+	{
+		document.getElementById("submitfeedback").innerHTML="** Thank You for your valuable feedback **"; 
+		var ele = document.getElementById("submitbutton");
+	//var text = document.getElementById("displayText");
+		ele.style.display="none";
+		
+	}
+</script>
+<style type="text/css">
+<!--
+a {
+	font-family: Verdana, sans-serif;
+	font-size: 11px;
+	color: #ECE9D8;
+}
+
+a:link {
+	text-decoration: none;
+	color: #006550;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #006550;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #666666;
+}
+
+a:active {
+	text-decoration: none;
+	color: #006550;
+}
+
+
+-->
+</style>
+
+</head>
+<body>
+
+		<div id="wrapper">
+			
+			<div id="linkguest" style="margin: 20px 0px 20px 210px;">
+				<div style="margin-top: 0px; margin-left: 0px; margin-bottom: 5px; width: 600px;">
+					<form action="" method="post" style="margin-bottom: -5px; margin-top: -5px;">
+						<div style="width: 600px; height: 160px; padding: 5px; margin: 2px; border: 1px solid #c1c6a2; background-color: #ccccab; border: 1px solid #c1c6a2; ">
+							<center>
+							<div style="width: 600px; height: 35px; margin-top:10px; border: 0px solid #c1c6a2; background-color: #ccccab; border: 0px solid #c1c6a2; ">
+							
+								<font size="5" color="#6e6e11" style="font-style: italic;" style="">
+									<b>FEEDBACK FORM</b>&nbsp;&nbsp;
+									<!--<img src="images\TATA-logo1.bmp" alt="" style="margin-left:70px;margin-right: 10px;"/> -->
+<!--									<img alt="" src="images/feedback/TATA-logo1.png" height="50px" width="80px" style="margin-left:70px;margin-right: 10px;"> -->
+								</font>
+							
+							</div></center>
+						<hr/>
+						<div style="font-family: Verdana; font-size: 11px; color: #387C44; height: 65px; width: 280px; float: left; border: 0px solid #c1c6a2; margin-top: 10px;">
+							<span style="width: 325px; float: left;">
+								<!--<img src="images\HSP-logo1.bmp" alt="" style="margin-left:45px;margin-right: 45px;"/>  -->
+								<img alt="" src="images/logoAllambie.png" height="80px" width="130px" style="margin-left:45px;margin-right: 45px;" />
+							</span><br /><br />
+						</div>
+						<div align="left" style="font-family: Verdana; font-size: 11px; color: #387C44; margin-left: 30px; margin-top: 10px; height: 80px; width: 280px; float: left; border: 0px solid #c1c6a2; ">
+						<!-- <span style="font-family: Verdana; font-size: 10px; color: #006633; margin-left: 65px;"> 
+						<center><font size="5" color="#828282" style="font-style: italic;"><b>FEEDBACK FORM</b>&nbsp;&nbsp;</font></center><br/>-->
+						
+						Thank you for choosing a our Hotel and we hope you have
+						enjoyed your visit. We know our guests can provide many of the best
+						ideas on improvements so we would really appreciate your feedback on
+						your stay with us. <br/><br/>
+							
+						</div>
+						
+						</div>
+						<div style="width: 600px; height: 110px; padding: 5px; margin: 1px; border: 1px solid #c1c6a2; background-color: #e6e6c1;">
+						<div style="font-family: Verdana; font-size: 11px; color: #387C44; margin-left: 10px;">
+							<span style="width: 280px; float: left;">
+								<strong>Arrival</strong><br /><br />
+								1. Are you satisfied with checkin process?<br />&nbsp; 
+								<input name="arrival" type="radio" value="yes" 
+								style="font-family: Verdana; font-size: 10px; color: #387C44;" />Yes
+								<input name="arrival" type="radio" value="no"
+								style="font-family: Verdana; font-size: 10px; color: #387C44;" />No<br /><br />
+								2. Were your reservation details correct?<br />&nbsp; 
+								<input name="reservation" type="radio" value="yes"
+								style="font-family: Verdana; font-size: 10px; color: #387C44;" />Yes
+								<input name="reservation" type="radio" value="no"
+								style="font-family: Verdana ; font-size: 10px; color: #387C44;" />No
+							</span>
+							<span style="width: 280px; float: left; margin-left: 30px;">
+							<strong>Check Out</strong><br /><br />
+								1. Was your check out friendly and efficient?<br />&nbsp; 
+								<input name="checkout" type="radio" value="yes"	
+								style="font-family: Verdana ; font-size: 10px; color: #387C44;" />Yes
+								<input name="checkout" type="radio" value="no" 
+								style="font-family: Verdana ; font-size: 10px; color: #387C44;" />No<br /><br />
+								<br />&nbsp; 
+								<!--<input name="book" type="radio" value="yes"	
+								style="font-family: Verdana ; font-size: 10px; color: #006633;" />Yes
+								<input name="book" type="radio" value="no" 
+								style="font-family: Verdana; font-size: 10px; color: #006633;" />No-->
+							</span>
+						</div>
+						</div>
+						<div style="width: 600px; height: 140px; padding: 5px; margin: 1px; border: 1px solid #c1c6a2; background-color: #e6e6c1;">
+						<div style="font-family: Verdana; font-size: 11px; color: #387C44; margin-left: 10px;">
+							<span style="width: 280px; float: left;">
+								<strong>During Your Stay</strong><br /><br />
+								1. Was your room clean, well presented and was everything working?<br />&nbsp; 
+								<input name="room" type="radio" value="yes"	
+								style="font-family: Verdana; font-size: 10px; color: #387C44;" />Yes
+								<input name="room" type="radio" value="no" 
+								style="font-family: Verdana; font-size: 10px; color: #387C44;" />No<br /><br />
+								2. If you used the restaurant or room service, was the service friendly and efficient?<br />&nbsp; 
+								<input name="restaurant" type="radio" value="yes"
+								style="font-family: Verdana; font-size: 10px; color: #387C44;" />Yes
+								<input name="restaurant" type="radio" value="no" 
+								style="font-family: Verdana; font-size: 10px; color: #387C44;" />No<br /><br />
+								
+							</span>
+							<span style="width: 280px; float: left; margin-left: 30px;">
+								<strong>General</strong><br /><br />
+								1. Would you stay at this hotel again or recommend it?<br />&nbsp; 
+								<input name="recommend" type="radio" value="yes"
+								style="font-family: Verdana; font-size: 10px; color: #387C44;" />Yes
+								<input name="recommend" type="radio" value="no"
+								style="font-family: Verdana; font-size: 10px; color: #387C44;" />No<br /><br />
+								2. Did the hotel represent good value for money?<br />&nbsp; 
+								<input name="goodvalue" type="radio" value="yes"
+								style="font-family: Verdana; font-size: 10px; color: #387C44;" />Yes
+								<input name="goodvalue" type="radio" value="no"
+								style="font-family: Verdana; font-size: 10px; color: #387C44;" />No<br /><br />
+							
+							</span>
+						</div>
+						</div>
+						<div style="width: 600px; height: 130px; padding: 5px; margin: 1px 0 150px 0; border: 1px solid #c1c6a2; background-color: #ccccab;">
+						<div style="font-family: Verdana; font-size: 11px; color: #387C44; margin-left: 10px;">
+							<span style="width: 280px; float: left;">
+								<input name="special" type="checkbox" value="Accept Newsletter"
+								style="font-family: Verdana; font-size: 10px; color: #387C44;" />
+								Tick the box to receive special offers and promotions from our Hotels.
+								<br/></br/><br/><div id="submitfeedback" style="font-family: Verdana; font-size: 11px; color: #C11B17; margin-left: 10px;"></div>
+							</span> 
+							<span style="width: 280px; float: left; margin-left: 30px;">
+								<b>General Comments:</b><br /><br/>
+								<textarea name="guestcomment" class="leftlink" cols="30" rows="3"></textarea><br /><br/>
+							</span>
+							<center><div id="submitbutton"><img src="images/feedback/submit-feedback.png" onclick="submitfeedback(this.form)"/></div><center>
+						</div>
+						</div>
+						<!--<div style="width: 600px; height: 55px; padding: 5px; margin: 1px; border: 1px solid #c1c6a2; background-color: #667C26;">
+						<div style="font-family: Verdana; font-size: 11px; color: #387C44; margin-left: 10px;">
+							<span style="width:280px; float:left;">
+								<strong>Pleasant Stay Hotels</strong><br />											ff7a7a
+								Reservations: +44 (0)20 7835 2000<br />
+								e-mail: stay@pleasantstayhotel.com <strong>www.pleasantstayhotels.com</strong>
+							</span>	
+							<span style="width:280px; float:left; margin-left:30px;"><br />
+								Home | Best Rate Guarantee | Privacy Policy <br />
+								Terms &amp; Conditions | Sitemap
+							</span>
+								
+						
+						</div>
+						</div>-->
+					</form>
+				</div>
+		
+		</div>
+		<div class="dock2" id="dock2">
+  <div class="dock-container2">
+  <a class="dock-item2" href="javascript:callhref('index1')"><span>Home</span><img src="images/dock/home.png" alt="Home" /></a> 
+<!--  <a class="dock-item2" href="javascript:call('gingerhotel')"><span>Ginger Hotels</span><img src="images/dock/ginger.png" alt="Ginger Hotels" /></a> -->
+  <!--<a class="dock-item2" href="javascript:callhref('socialnetworks')"><span>Social Networking</span><img src="images/dock/social.png" alt="Social Networking" /></a> 
+  <a class="dock-item2" href="javascript:callhref('news')"><span>Web Channels</span><img src="images/dock/webchannel.png" alt="Web Channels" /></a>
+  <a class="dock-item2" href="javascript:call('youtube')"><span>Youtube</span><img src="images/dock/youtube1.png" alt="InfoEntertainment" /></a>
+  <a class="dock-item2" href="javascript:callhref('newspaper')"><span>Newspaper</span><img src="images/dock/newspaper.png" alt="Info Entertainment" /></a>
+--><a class="dock-item2" href="javascript:callhref('spaReservation')"><span>Spa Reservation</span><img src="images/dock/spa.png" alt="Spa Reservation" /></a>
+  <a class="dock-item2" href="javascript:callhref('restaurant')"><span>Restaurant Booking</span><img src="images/dock/restaurant.png" alt="Restaurant Booking" /></a>
+  <a class="dock-item2" href="javascript:callhref('dispMessage')"><span>Inbox</span><img src="images/dock/message.png" alt="Messages" /></a>
+  <a class="dock-item2" href="javascript:callhref('pickDropService')"><span>Pick and Drop</span><img src="images/dock/pick.png" alt="Pick and Drop" /></a> 
+  <a class="dock-item2" href="javascript:callhref('invoice')"><span>Invoice</span><img src="images/dock/invoice.png" alt="Invoice" /></a>
+  <a class="dock-item2" href="javascript:callhref('emailLogin')"><span>Find Friends</span><img src="images/dock/friends.png" alt="Find Friends" /></a> 
+  </div>
+</div>
+</body>
+</html>

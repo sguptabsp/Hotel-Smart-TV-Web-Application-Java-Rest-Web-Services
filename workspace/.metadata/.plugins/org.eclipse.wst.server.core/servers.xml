@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v6.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="6_24_12_1_46_PM4" name="Tomcat v6.0 Server at localhost" runtime-id="Apache Tomcat v6.0" server-type="org.eclipse.jst.server.tomcat.60" server-type-id="org.eclipse.jst.server.tomcat.60" testEnvironment="true" timestamp="49">
+    <list key="modules" value0="BubbleNavigation::org.eclipse.jst.j2ee.server:BubbleNavigation::jst.web::2.4" value1="Checkout::org.eclipse.jst.j2ee.server:Checkout::jst.web::2.4"/>
+  </server>
+</servers>

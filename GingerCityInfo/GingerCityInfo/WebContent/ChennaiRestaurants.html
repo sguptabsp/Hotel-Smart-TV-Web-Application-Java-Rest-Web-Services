@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="en" class="ie ie6 lt7 lt8 lt9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if IE 7]> <html lang="en" class="ie ie7 lt8 lt9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie ie8 lt9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie ie9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><!--<![endif]--><head>
+
+<html>
+<head>
+	
+	<meta name="description" content="The Slidorion is a great new jQuery plugin built to combine an image slider and an accordion. Accompanied by a range of features and effects, the Slidorion a fantastic and slick plugin that is compatible with all browsers.">
+	<meta name="author" content="Ben Holland">
+	
+	<title>Chennai Restaurant Information</title>
+	
+	
+    <link rel="stylesheet" type="text/css" media="all" href="common.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="indexPageBundle.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/bottomlink.css" />
+    <style>@media screen and (max-width: 960px){body{padding:0;}div.header{position:relative;}.headerBorders{display:none;}}</style>
+	
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/slidorion.css" />
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+    <script src="js/jquery.slidorion.min.js"></script>
+    <script src="js/condition.js">
+    </script>
+    <script>
+	$(function() {
+		$('#slidorion').slidorion({
+			first: 2,
+			easing: 'easeInOutCubic',
+			effect: 'random'
+		});
+	});
+	</script>
+	
+</head>
+
+<body class="homepagePage">
+
+<div class="headerGlow"></div>
+<div class="brand header">
+<div class="nav">
+<div class="module gutters clearfix">
+<ul class="left content">
+<li><a name="wiki" id="wiki" title="Wikipedia" href="#" onclick="wiki('Chennai')" style="color: #D0D0D0;font-size: 15px; font-family: cursive;">Wikipedia</a></li>
+<li><a name="POI" id="POI" title="Place Of Interest" style="color: #D0D0D0;font-size: 15px; font-family: cursive;" href="#" onclick="places('Chennai')" >Place Of Interest</a></li>
+<li><a name="taxi" id="taxi" title="Taxi Services" style="color: #D0D0D0;font-size: 15px; font-family: cursive;" href="#"  onclick="taxi('Chennai')" >Taxi Services</a></li>
+<li><a name="restaurant" id="restaurant" title="Restaurants" style="color:#D0D0D0;font-size: 15px; font-family: cursive;" href="#"  onclick="restaurant('Chennai')" >Restaurants</a></li>
+<li><a name="justdial" id="justdial" title="Just Dial" style="color: #D0D0D0;font-size: 15px; font-family: cursive;" href="#" onclick="justdial('Chennai')">Just Dial</a></li>
+</ul>
+</div>
+</div>
+<div class="headerSearch ">
+<form id="searchForm" class="module row gutters" name="searchForm" >
+<input type="hidden" name="ref_uri" value="/listings" />
+<div class="unit logo">
+<a name="homepage.topnav.1.gingerLogo" id="headerGinger.logo" href="demo.html" title="Ginger City Search">
+<img src="img/gingerogo.jpg" width="186" height="47" alt="Citysearch" />
+</a>
+<a name="homepage.topnav.1.citysearchLogo" id="header.logo" href="demo.html" title="Citysearch">
+<img src="logo_citysearch_186x47.png" width="186" height="47" alt="Citysearch" />
+</a>
+</div>
+<div class="left">
+<div id="whatField" class="selects">
+<select name= "category" id = "category" style="background-color:#8a939a; border-color:#8a939a; border-bottom-width: 0px; width:200px; ">
+    <option value="category" selected="selected">--category--</option>
+	<option value="Wikipedia">Wikipedia</option>
+	<option value="Place of Interest">Place of Interest</option>
+	<option value="Taxi Services">Taxi Services</option>
+	<option value="Restaurant">Restaurant</option>
+	<option value="Just Dial">Just Dial</option>
+</select>
+</div>
+</div>
+<div class="left">
+<div id="whereField" class="selects">
+<select name= "loaction" id = "location" style="background-color:#8a939a; border-color:#8a939a; border-bottom-width: 0px; width:150px; ">
+    <option value="City" selected="selected">--City--</option>
+	<option value="Ahmedabad">Ahmedabad</option>
+	<option value="Bangalore">Bangalore</option>
+	<option value="Chennai">Chennai</option>
+	<option value="Delhi">Delhi</option>
+	<option value="Goa">Goa</option>
+	<option value="Mumbai">Mumbai</option>
+	<option value="Pune">Pune</option>
+</select>
+</div>
+<button title="Search"  type="submit" name="" class="headerGoButton" onclick="display()"><span class="searchIcon hideText">Go!</span></button>
+</div>
+
+</form>
+
+</div>
+</div>
+	
+	<div id="header"><h1></h1></div>
+	<div id="slidorion">
+		
+		<div id="slider">
+			<div id="slide1" class="slide">
+				<img src="img/chennaiRestaurants/aqua1.jpg" width="518" height="300" />
+			</div>
+			<div id="slide2" class="slide">
+				<img src="img/chennaiRestaurants/benjarong.jpg" width="518" height="300" />
+			</div>
+			<div id="slide3" class="slide">
+				<img src="img/chennaiRestaurants/Anjappar1.jpg" width="518" height="300" />
+			</div>
+			<div id="slide4" class="slide">
+				<img src="img/chennaiRestaurants/mainland2.gif" width="518" height="300" />
+			</div>
+			<div id="slide5" class="slide">
+				<img src="img/chennaiRestaurants/cornucopia.jpg" width="518" height="300" />
+			</div>
+		</div>
+		
+		<div id="accordion">
+			<div class="link-header">Aqua,Chennai</div>
+			<div class="link-content">
+				<p><strong>Aqua,Chennai</strong> This International restaurant is situated at a convenient location near the Chennai airport. Perched on the 8th floor of the Park Hotel at Anna Salai, Chennai this restaurant with its Mediterranean style pool side setting has won awards for its luxuriously romantic ambience and tasty food. Its menu selections range from Italian to North Indian.</p>
+				<a href="http://www.theparkhotels.com/chennai/the-park-chennai/aqua.html">More Information</a>
+			</div>
+			<div class="link-header">Benjarong</div>
+			<div class="link-content">
+				<p>This Thai restaurant chain has a presence in Chennai as well. Located at TTK Road close to the Adyar Park Sheraton, it is highly recommended for non vegetarian foodies.</p>
+				<a href="http://benjarong.in/">More Information</a>
+			</div>
+			<div class="link-header">Anjappar,Anna-nagar,Chennai</div>
+			<div class="link-content">
+				<p>This restaurant offers authentic South Indian dishes. Anjappar came into existence in 1964 with more than forty years of experience and at present forty outlets all across Chennai. They serve traditional dishes of Chettinaad to visitors. The restaurant is situated in Anna Nagar</p>
+				<a href="http://www.anjappar.com/">More Information</a>
+			</div>
+			<div class="link-header">Barbeque Nation,Chennai</div>
+			<div class="link-content">
+				<p><strong>Barbeque Nation,Chennai</strong> It is a very famous restaurant with variety of starters dishes,soups,grill food.It is both vegetarian and non vegetarian.. It is located at Shri Devi Park Hotel, No-1 Hanumantha Road, North Usman Road, T Nagar.Chennai-17 and the contact number is 044-60600000, 64530160 , 9381512199 </p>
+				<a href="http://www.mainlandchinaindia.com/contact_chennai.html">More Information</a>
+			</div>
+			<div class="link-header">Cornucopia,Chennai</div>
+			<div class="link-content">
+				<p>If you are craving for a Continental meal, this is the place to go to. Cornucopia is a non vegetarian restaurant with signature dishes like Beanthread Noodle Salad, Crab Meat Cakes and Baked Chicken Aragon. You can also try a range of soups, salads and pastas.</p>
+				<a href="http://www.crimsonchakra.in/menu/cornucopia">More Information</a>
+			</div>
+		</div>
+		
+	</div>
+	
+<div class="img" id="wiki" style="margin-top:2%; margin-left:18%;">
+<a target="_blank" href="#" onclick="wiki('Chennai')">
+<img src="img/Wikipedialogo.png" alt="Wikipedia Info" width="110" height="90" />
+</a>
+</div>
+<div class="img" id="POI" style="margin-top:2%; margin-left:5%;">
+<a target="_blank" href="#" onclick="places('Chennai')">
+<img src="img/PlacesToVisit.jpg" alt="Places Of Interest" width="110" height="90" />
+</a>
+</div>
+<div class="img" id="taxi" style="margin-top:2%; margin-left:5%;">
+<a target="_blank" href="#" onclick="taxi('Chennai')">
+ <img src="img/TaxiService.jpg" alt="Taxi Service" width="110" height="90" />
+ </a>
+</div>
+<div class="img" id="restBooking" style="margin-top:2%; margin-left:5%;">
+<a target="_blank" href="#" onclick="restaurant('Chennai')">
+<img src="img/RestaurantBooking.jpg" alt="Restaurant Booking" width="110" height="90" />
+</a>
+</div>
+<div class="img" id="justDial" style="margin-top:2%; margin-left:5%;">
+<a target="_blank" href="#" onclick="justdial('Chennai')">
+<img src="img/just-dial-mobile.jpg" alt="Just Dial" width="110" height="90" />
+</a>
+</div>
+	
+</body>
+
+</html>

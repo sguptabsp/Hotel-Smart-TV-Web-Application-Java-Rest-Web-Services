@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Welcome to Conference Hall Booking Panel</title>
+<meta name="description" content="Welcome to Conference Hall Booking Panel" />
+<meta name="keywords" content="jquery, circular menu, navigation, round, bubble"/>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+<script src="js/jquery.js"></script>
+<script src="js/interface.js"></script>
+<script type="text/javascript" src="js/datetimepicker_css.js"></script>
+<script type="text/javascript">
+function call(text)
+{
+	var name=new Array("gingerhotel","facebook","twitter","linkedin","youtube","gingerfeedback","indiapress",
+			"onlinenewspapers","newspapers","allnewspapers");
+	var link=new Array("http://www.gingerhotels.com/",
+			"http://www.facebook.com",
+			"http://www.twitter.com",
+			"http://www.linkedin.com",
+			"http://www.youtube.com",
+			"http://www.gingerhotels.com/contactus/Customer_Feedback.aspx",
+			"http://www.indiapress.org/index.php/",
+			"http://www.onlinenewspapers.com/",
+			"http://newspapers.com/",
+			"http://allnewspapers.com/");
+	for(var i=0;i<name.length;i++)
+	{
+		if(text==name[i])
+		{
+			//window.location=link[i];
+			  //alert("link"+link[i]);
+			  window.open(link[i],'_blank');
+		}
+	}
+}
+function callhref(text)
+{
+	//alert(text);
+	if(text=="index1")
+	{
+		window.location.href=text+".jsp";
+	}
+	else	
+		window.location.href=text+".html";
+		//window.open(text+".html",'_blank');
+	//window.location.href=location of file on server
+}
+</script>
+<script type="text/javascript">
+	
+	$(document).ready(
+		function()
+		{
+			
+			$('#dock2').Fisheye(
+				{
+					maxWidth: 60,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container2',
+					itemWidth: 80,
+					proximity: 80,
+					alignment : 'left',
+					valign: 'bottom',
+					halign : 'center'
+				}
+			)
+		}
+	);
+
+</script>
+</head>
+<style type="text/css">
+*{
+                margin:0;
+                padding:0;
+            }
+            body{
+                font-family:Arial;
+                background:#fff url(images/bg.png) no-repeat top left;
+            }
+            .title{
+                width:548px;
+                height:119px;
+                position:absolute;
+                top:400px;
+                left:150px;
+                background:transparent url(title.png) no-repeat top left;
+            }
+            a.back{
+                background:transparent url(back.png) no-repeat top left;
+                position:fixed;
+                width:150px;
+                height:27px;
+                outline:none;
+                bottom:0px;
+                left:0px;
+            }
+            #content{
+                margin:0 auto;
+            }
+.sample {
+	border-width: 1px;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-style: outset;
+	border-color: gray;	
+}
+.heading {
+	color: black;
+	margin: 10px;
+	vertical-align: center;
+	text-align: center;
+	font-family: verdana;
+	font-size: 18px;
+	font-weight: bold;
+	color: black;
+	top: 10px;
+}
+.sample th {
+	color: black;
+	margin: 10px;
+	vertical-align: center;
+	background-color :  #FDEEF4;
+	text-align: center;
+	font-family: verdana;
+	font-size: 12px;
+	font-weight: medium;
+	color: black;
+	top: 10px;
+}
+.txt {
+	color: black;
+	margin: 10px;
+	text-align: center;
+	font-family: verdana;
+	font-size: 12px;
+	color: black;
+	top: 10px;
+}
+</style>
+<body>
+
+<div id="content">
+            <a class="back" href="http://tympanus.net/codrops/2010/04/29/awesome-bubble-navigation-with-jquery"></a>
+            <div class="title"></div>
+
+            <div class="navigation" id="nav">
+                <div class="item user">
+                    <img src="images/bg_user.png" alt="" width="199" height="199" class="circle"/>
+                    <a href="#" class="icon"></a>
+                    <h2>User</h2>
+                    <ul>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Properties</a></li>
+                        <li><a href="#">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="item home">
+                    <img src="images/bg_home.png" alt="" width="199" height="199" class="circle"/>
+                    <a href="#" class="icon"></a>
+                    <h2>Home</h2>
+                    <ul>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="item shop">
+                    <img src="images/bg_shop.png" alt="" width="199" height="199" class="circle"/>
+                    <a href="#" class="icon"></a>
+                    <h2>Shop</h2>
+                    <ul>
+                        <li><a href="#">Catalogue</a></li>
+                        <li><a href="#">Orders</a></li>
+                        <li><a href="#">Offers</a></li>
+                    </ul>
+                </div>
+                <div class="item camera">
+                    <img src="images/bg_camera.png" alt="" width="199" height="199" class="circle"/>
+                    <a href="#" class="icon"></a>
+                    <h2>Photos</h2>
+                    <ul>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Prints</a></li>
+                        <li><a href="#">Submit</a></li>
+                    </ul>
+                </div>
+                <div class="item fav">
+                    <img src="images/bg_fav.png" alt="" width="199" height="199" class="circle"/>
+                    <a href="#" class="icon"></a>
+                    <h2>Love</h2>
+                    <ul>
+                        <li><a href="#">Social</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Comments</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- The JavaScript -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.easing.1.3.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('#nav > div').hover(
+                function () {
+                    var $this = $(this);
+                    $this.find('img').stop().animate({
+                        'width'     :'199px',
+                        'height'    :'199px',
+                        'top'       :'-25px',
+                        'left'      :'-25px',
+                        'opacity'   :'1.0'
+                    },500,'easeOutBack',function(){
+                        $(this).parent().find('ul').fadeIn(700);
+                    });
+
+                    $this.find('a:first,h2').addClass('active');
+                },
+                function () {
+                    var $this = $(this);
+                    $this.find('ul').fadeOut(500);
+                    $this.find('img').stop().animate({
+                        'width'     :'52px',
+                        'height'    :'52px',
+                        'top'       :'0px',
+                        'left'      :'0px',
+                        'opacity'   :'0.1'
+                    },5000,'easeOutBack');
+
+                    $this.find('a:first,h2').removeClass('active');
+                }
+            );
+            });
+              </script>
+              
+
+<div class="dock2" id="dock2">
+  <div class="dock-container2">
+  <a class="dock-item2" href="javascript:callhref('index1')"><span>Home</span><img src="images/dock/home.png" alt="Home" /></a> 
+<!--  <a class="dock-item2" href="javascript:call('gingerhotel')"><span>Ginger Hotels</span><img src="images/dock/ginger.png" alt="Ginger Hotels" /></a> --><!--
+  <a class="dock-item2" href="javascript:callhref('socialnetworks')"><span>Social Networking</span><img src="images/dock/social.png" alt="Social Networking" /></a> 
+  <a class="dock-item2" href="javascript:callhref('news')"><span>Web Channels</span><img src="images/dock/webchannel.png" alt="Web Channels" /></a>
+  <a class="dock-item2" href="javascript:call('youtube')"><span>Youtube</span><img src="images/dock/youtube1.png" alt="InfoEntertainment" /></a>
+ <a class="dock-item2" href="javascript:callhref('newspaper')"><span>Newspaper</span><img src="images/dock/newspaper.png" alt="Info Entertainment" /></a> -->
+<a class="dock-item2" href="javascript:callhref('feedback')"><span>Feedback</span><img src="images/dock/feedback.png" alt="Feedback" /></a>
+  <a class="dock-item2" href="javascript:callhref('invoice')"><span>Invoice</span><img src="images/dock/invoice.png" alt="Invoice" /></a>
+  <a class="dock-item2" href="javascript:callhref('restaurant')"><span>Restaurant Booking</span><img src="images/dock/restaurant.png" alt="Restaurant Booking" /></a>
+  <a class="dock-item2" href="javascript:callhref('dispMessage')"><span>Inbox</span><img src="images/dock/message.png" alt="Messages" /></a>
+  <a class="dock-item2" href="javascript:callhref('pickDropService')"><span>Pick and Drop</span><img src="images/dock/pick.png" alt="Pick and Drop" /></a>
+  <a class="dock-item2" href="javascript:callhref('emailLogin')"><span>Find Friends</span><img src="images/dock/friends.png" alt="Find Friends" /></a> 
+   </div> 
+ </div> 
+</body>
+</html>

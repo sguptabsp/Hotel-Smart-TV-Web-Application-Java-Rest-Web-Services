@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="en" class="ie ie6 lt7 lt8 lt9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if IE 7]> <html lang="en" class="ie ie7 lt8 lt9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie ie8 lt9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie ie9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><!--<![endif]--><head>
+
+<html>
+<head>
+	
+	<meta name="description" content="The Slidorion is a great new jQuery plugin built to combine an image slider and an accordion. Accompanied by a range of features and effects, the Slidorion a fantastic and slick plugin that is compatible with all browsers.">
+	<meta name="author" content="Ben Holland">
+	
+	<title>Ginger City Search</title>
+	
+	
+    <link rel="stylesheet" type="text/css" media="all" href="common.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="indexPageBundle.css" />
+    <style>@media screen and (max-width: 960px){body{padding:0;}div.header{position:relative;}.headerBorders{display:none;}}
+	</style>
+	
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/slidorion.css" />
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+    <script src="js/jquery.slidorion.min.js"></script>
+    <script src="js/condition.js">
+    </script>
+	
+    <script>
+	$(function() {
+		$('#slidorion').slidorion({
+			first: 2,
+			easing: 'easeInOutCubic',
+			effect: 'random'
+		});
+	});
+	</script>
+	
+</head>
+
+<body class="homepagePage">
+
+<div class="headerGlow"></div>
+<div class="brand header">
+<div class="nav">
+<div class="module gutters clearfix">
+<ul class="left content">
+<li><a name="wiki" id="wiki" title="Wikipedia" href="#" style="color:#D0D0D0; font-size: 15px; font-family: cursive;">Wikipedia</a></li>
+<li><a name="POI" id="POI" title="Place Of Interest" style="color: #D0D0D0; font-size: 15px; font-family: cursive;" href="#">Place Of Interest</a></li>
+<li><a name="taxi" id="taxi" title="Taxi Services" style="color:#D0D0D0; font-size: 15px; font-family: cursive;" href="#">Taxi Services</a></li>
+<li><a name="restaurant" id="restaurant" title="Restaurants" style="color: #D0D0D0; font-size: 15px; font-family: cursive;" href="#">Restaurants</a></li>
+<li><a name="justdial" id="justdial" title="Just Dial" style="color:#D0D0D0; font-size: 15px; font-family: cursive;" href="#">Just Dial</a></li>
+</ul>
+</div>
+</div>
+<div class="headerSearch ">
+<form id="searchForm" class="module row gutters" name="searchForm" >
+<input type="hidden" name="ref_uri" value="/listings" />
+<div class="unit logo">
+<a name="homepage.topnav.1.gingerLogo" id="headerGinger.logo" href="demo.html" title="Ginger City Search">
+<img src="img/gingerogo.jpg" width="186" height="47" alt="Citysearch" />
+</a>
+<a name="homepage.topnav.1.citysearchLogo" id="header.logo" href="demo.html" title="Citysearch">
+<img src="logo_citysearch_186x47.png" width="186" height="47" alt="Citysearch" />
+</a>
+</div>
+<div class="left">
+<div id="whatField" class="selects">
+<select name= "category" id = "category" style="background-color:#8a939a; border-color:#8a939a; border-bottom-width: 0px; width:200px; ">
+    <option value="category" selected="selected">I'm looking for....</option>
+	<option value="Wikipedia">Wikipedia</option>
+	<option value="Place of Interest">Place of Interest</option>
+	<option value="Taxi Services">Taxi Services</option>
+	<option value="Restaurant">Restaurant</option>
+	<option value="Just Dial">Just Dial</option>
+</select>
+</div>
+</div>
+<div class="left">
+<div id="whereField" class="selects">
+<select name= "loaction" id = "location" style="background-color:#8a939a; border-color:#8a939a; border-bottom-width: 0px; width:150px; ">
+    <option value="City" selected="selected">City</option>
+	<option value="Ahmedabad">Ahmedabad</option>
+	<option value="Bangalore">Bangalore</option>
+	<option value="Chennai">Chennai</option>
+	<option value="Delhi">Delhi</option>
+	<option value="Goa">Goa</option>
+	<option value="Mumbai">Mumbai</option>
+	<option value="Pune">Pune</option>
+</select>
+</div>
+<button title="Search" type="submit" onclick="display();"  name="search" class="headerGoButton"><span class="searchIcon hideText">Go!</span></button>
+</div>
+
+</form>
+
+</div>
+</div>
+	
+	<div id="header"><h1></h1></div>
+	<div id="slidorion">
+		
+		<div id="slider">
+			<div id="slide1" class="slide">
+				<img src="img/Wikipedialogo.png" width="518" height="300" />
+			</div>
+			<div id="slide2" class="slide">
+				<img src="img/PlacesToVisit.jpg" width="518" height="300" />
+			</div>
+			<div id="slide3" class="slide">
+				<img src="img/TaxiService.jpg" width="518" height="300" />
+			</div>
+			<div id="slide4" class="slide">
+				<img src="img/RestaurantBooking.jpg" width="518" height="300" />
+			</div>
+			<div id="slide5" class="slide">
+				<img src="img/just-dial-mobile.jpg" width="518" height="300" />
+			</div>
+		</div>
+		
+		<div id="accordion">
+			<div class="link-header">Wikipedia</div>
+			<div class="link-content">
+				<p><strong>Slidorion</strong> has under gone some pretty important changes recently.</p>
+				<p>It now <strong>supports HTML</strong> and not just images, something that is going to improve the usability of Slidorion a lot.</p>
+				<p>Some new effects have been added, most importantly <strong>pan and zoom</strong>! Along with this are performance upgrades and <strong>vital bug fixes</strong>.</p>
+			</div>
+			<div class="link-header">Place of Interest</div>
+			<div class="link-content">
+				<p>Batman raises the stakes in his war on crime. With the help of Lieutenant Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the city streets. But they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as The Joker.</p>
+				<a href="http://www.imdb.com/title/tt0468569/">Read more</a>
+			</div>
+			<div class="link-header">Taxi Services</div>
+			<div class="link-content">
+				<p>Top London cop, PC Nicholas Angel is good. Too good. And to stop the rest of his team looking bad, he is reassigned to the quiet town of Sandford. Everything seems quiet for Angel, until two actors are found decapitated. It is called an accident, but Angel isn't going to accept that, especially when more and more people turn up dead.</p>
+				<a href="http://www.imdb.com/title/tt0425112/">Read more</a>
+			</div>
+			<div class="link-header">Restaurant & Fooding</div>
+			<div class="link-content">
+				<p>Top London cop, PC Nicholas Angel is good. Too good. And to stop the rest of his team looking bad, he is reassigned to the quiet town of Sandford. Everything seems quiet for Angel, until two actors are found decapitated. It is called an accident, but Angel isn't going to accept that, especially when more and more people turn up dead.</p>
+				<a href="http://www.imdb.com/title/tt0425112/">Read more</a>
+			</div>
+			<div class="link-header">Just Dial</div>
+			<div class="link-content">
+				<p>Top London cop, PC Nicholas Angel is good. Too good. And to stop the rest of his team looking bad, he is reassigned to the quiet town of Sandford. Everything seems quiet for Angel, until two actors are found decapitated. It is called an accident, but Angel isn't going to accept that, especially when more and more people turn up dead.</p>
+				<a href="http://www.imdb.com/title/tt0425112/">Read more</a>
+			</div>
+		</div>
+		
+	</div>
+	
+</body>
+
+</html>

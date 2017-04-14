@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="en" class="ie ie6 lt7 lt8 lt9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if IE 7]> <html lang="en" class="ie ie7 lt8 lt9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie ie8 lt9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie ie9" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"><!--<![endif]--><head>
+
+<html>
+<head>
+	
+	<meta name="description" content="The Slidorion is a great new jQuery plugin built to combine an image slider and an accordion. Accompanied by a range of features and effects, the Slidorion a fantastic and slick plugin that is compatible with all browsers.">
+	<meta name="author" content="Ben Holland">
+	
+	<title>Mumbai Restaurant Information</title>
+	
+	
+    <link rel="stylesheet" type="text/css" media="all" href="common.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="indexPageBundle.css" />
+    <style>@media screen and (max-width: 960px){body{padding:0;}div.header{position:relative;}.headerBorders{display:none;}}</style>
+	
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/slidorion.css" />
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+    <script src="js/jquery.slidorion.min.js"></script>
+     <script src="js/condition.js">
+    </script>
+    <script>
+	$(function() {
+		$('#slidorion').slidorion({
+			first: 2,
+			easing: 'easeInOutCubic',
+			effect: 'random'
+		});
+	});
+	</script>
+	 <link rel="stylesheet" type="text/css" media="all" href="css/bottomlink.css" />
+	
+</head>
+
+<body class="homepagePage">
+
+<div class="headerGlow"></div>
+<div class="brand header">
+<div class="nav">
+<div class="module gutters clearfix">
+<ul class="left content">
+<li><a name="wiki" id="wiki" title="Wikipedia" href="#" onclick="wiki('Mumbai')" style="color:#D0D0D0;font-size: 15px; font-family: cursive;">Wikipedia</a></li>
+<li><a name="POI" id="POI" title="Place Of Interest" style="color: #D0D0D0;font-size: 15px; font-family: cursive;" onclick="places('Mumbai')" href="#">Place Of Interest</a></li>
+<li><a name="taxi" id="taxi" title="Taxi Services" style="color: #D0D0D0;font-size: 15px; font-family: cursive;" href="#" onclick="taxi('Mumbai')">Taxi Services</a></li>
+<li><a name="restaurant" id="restaurant" title="Restaurants" style="color:#D0D0D0;font-size: 15px; font-family: cursive;" href="#" onclick="restaurant('Mumbai')">Restaurants</a></li>
+<li><a name="justdial" id="justdial" title="Just Dial" style="color: #D0D0D0;font-size: 15px; font-family: cursive;" href="#" onclick="justdial('Mumbai')">Just Dial</a></li>
+</ul>
+</div>
+</div>
+<div class="headerSearch ">
+<form id="searchForm" class="module row gutters" name="searchForm" >
+<input type="hidden" name="ref_uri" value="/listings" />
+<div class="unit logo">
+<a name="homepage.topnav.1.gingerLogo" id="headerGinger.logo" href="demo.html" title="Ginger City Search">
+<img src="img/gingerogo.jpg" width="186" height="47" alt="Citysearch" />
+</a>
+<a name="homepage.topnav.1.citysearchLogo" id="header.logo" href="demo.html" title="Citysearch">
+<img src="logo_citysearch_186x47.png" width="186" height="47" alt="Citysearch" />
+</a>
+</div>
+<div class="left">
+<div id="whatField" class="selects">
+<select name= "category" id = "category" style="background-color:#8a939a; border-color:#8a939a; border-bottom-width: 0px; width:200px; ">
+    <option value="category" selected="selected">--category--</option>
+	<option value="Wikipedia">Wikipedia</option>
+	<option value="Place of Interest">Place of Interest</option>
+	<option value="Taxi Services">Taxi Services</option>
+	<option value="Restaurant">Restaurant</option>
+	<option value="Just Dial">Just Dial</option>
+</select>
+</div>
+</div>
+<div class="left">
+<div id="whereField" class="selects">
+<select name= "loaction" id = "location" style="background-color:#8a939a; border-color:#8a939a; border-bottom-width: 0px; width:150px; ">
+    <option value="City" selected="selected">--City--</option>
+	<option value="Ahmedabad">Ahmedabad</option>
+	<option value="Bangalore">Bangalore</option>
+	<option value="Chennai">Chennai</option>
+	<option value="Delhi">Delhi</option>
+	<option value="Goa">Goa</option>
+	<option value="Mumbai">Mumbai</option>
+	<option value="Pune">Pune</option>
+</select>
+</div>
+<button title="Search"  type="submit" name="" class="headerGoButton" onclick="display()"><span class="searchIcon hideText">Go!</span></button>
+</div>
+
+</form>
+
+</div>
+</div>
+	
+	<div id="header"><h1></h1></div>
+	<div id="slidorion">
+		
+		<div id="slider">
+			<div id="slide1" class="slide">
+				<img src="img/mumbaiRestaurants/the-table.jpg" width="518" height="300" />
+			</div>
+			<div id="slide2" class="slide">
+				<img src="img/mumbaiRestaurants/yauatcha.jpg" width="518" height="300" />
+			</div>
+			<div id="slide3" class="slide">
+				<img src="img/mumbaiRestaurants/smoke-house-deli.jpg" width="518" height="300" />
+			</div>
+			<div id="slide4" class="slide">
+				<img src="img/mumbaiRestaurants/neel.jpg" width="518" height="300" />
+			</div>
+			<div id="slide5" class="slide">
+				<img src="img/mumbaiRestaurants/suzette.jpg" width="518" height="300" />
+			</div>
+		</div>
+		
+		<div id="accordion">
+			<div class="link-header">The Table,Colaba</div>
+			<div class="link-content">
+				<p><strong>The Table,Colaba</strong>,is one of the biggest culinary hits of Mumbai, The Table is reminiscent of a fancy jazz club, complete with black-and-white floors, green velvet armchairs and sparkling cocktails.
+
+Manned by San Franciscan expat chef Alex Sanchez, the kitchen is as impressive as the decor, sending out French-American dishes that are best in the city.
+
+The Table has recently added Sunday brunch, a high tea service and daily cocktail hours -- when the drinks are wincingly expensive.
+
+</p>
+				<a href="http://www.thetable.in/">More Information</a>
+			</div>
+			<div class="link-header">Hakkasan and Yauatcha, Bandra</div>
+			<div class="link-content">
+				<p>Spread over 10,000 square feet on a single floor, 'The Yum Yum Tree’ at the Community Centre, New Friends Colony offers Contemporary Chinese Cuisine & Signature Oriental Street Food that is carefully blended with innovative twists to create an experience that is familiar and yet fresh.</p>
+				<a href="http://mumbaiboss.com/2011/11/28/first-look-at-yauatcha-mumbai/">More Information</a>
+			</div>
+			<div class="link-header">Smoke House Deli, Lower Parel</div>
+			<div class="link-content">
+				<p>These Michelin-starred sister restaurants from London arrived on our shores this year, bringing with them great dim sum, silky soups and sexy spaces.
+
+Hakkasan is the fancier of the two, offering diners whole Peking duck in a lush, dimly lit room and ginger martinis across a long blue bar.
+
+Yauatcha is younger and hipper, with wide windows letting in natural light, a larger dim sum menu (try grilled Shanghai dumplings and duck rolls) and a selection of the best macaroons in Mumbai.
+
+</p>
+				<a href="http://timescity.com/mumbai/lower-parel/european-restaurant-smoke-house-deli/66861">More Information</a>
+			</div>
+			<div class="link-header">Neel, Mahalaxmi Race Course</div>
+			<div class="link-content">
+				<p> Opened in place of Tote on the turf at the Mahalaxmi Race Course, Neel retains the fairyland interiors (slender white trees, twinkling lights) of its predecessor, but overhauls the menu completely, focusing on Nawabi cuisine from Hyderabad, Kashmir and Lucknow.
+
+Hyderabadi fish and whole lambs make appearances, along with chicken tikka and biryani.
+
+</p>
+				<a href="http://mumbai.burrp.com/listing/neel_mahalaxmi_mumbai_bars-pubs-restaurants/1263763683">More Information</a>
+			</div>
+			<div class="link-header">Suzette, Nariman Point</div>
+			<div class="link-content">
+				<p>At <strong>Suzette</strong>, you will find for the first time in Bombay our crepes made in the pure Brittany tradition. But it's not just about crepes, we are also offering French salads made of quality and fresh ingredients and a large selection of natural juices, smoothies, fine teas and of course anything you like from our espresso bar.</p>
+				<a href="http://www.suzette.in/">More Information</a>
+			</div>
+		</div>
+		
+	</div>
+	
+<div class="img" id="wiki" style="margin-top:2%; margin-left:18%;">
+<a target="_blank" href="#" onclick="wiki('Mumbai')">
+<img src="img/Wikipedialogo.png" alt="Wikipedia Info" width="110" height="90" />
+</a>
+</div>
+<div class="img" id="POI" style="margin-top:2%; margin-left:5%;">
+<a target="_blank" href="#" onclick="places('Mumbai')">
+<img src="img/PlacesToVisit.jpg" alt="Places Of Interest" width="110" height="90" />
+</a>
+</div>
+<div class="img" id="taxi" style="margin-top:2%; margin-left:5%;">
+<a target="_blank" href="#" onclick="taxi('Mumbai')">
+ <img src="img/TaxiService.jpg" alt="Taxi Service" width="110" height="90" />
+ </a>
+</div>
+<div class="img" id="restBooking" style="margin-top:2%; margin-left:5%;">
+<a target="_blank" href="#" onclick="restaurant('Mumbai')">
+<img src="img/RestaurantBooking.jpg" alt="Restaurant Booking" width="110" height="90" />
+</a>
+</div>
+<div class="img" id="justDial" style="margin-top:2%; margin-left:5%;">
+<a target="_blank" href="#" onclick="justdial('Mumbai')">
+<img src="img/just-dial-mobile.jpg" alt="Just Dial" width="110" height="90" />
+</a>
+</div>
+	
+</body>
+
+</html>

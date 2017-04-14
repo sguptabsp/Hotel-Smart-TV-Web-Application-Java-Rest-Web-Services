@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<head>
+<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+
+
+<link href="calendar.css" rel="stylesheet" type="text/css">
+<script src="js/jquery.js"></script>
+<script type="text/javascript" src="js/datetimepicker_css.js"></script>
+<script src="js/interface.js"></script>
+<script type="text/javascript">
+function call(text)
+{
+	var name=new Array("gingerhotel","facebook","twitter","linkedin","youtube","gingerfeedback","indiapress",
+			"onlinenewspapers","newspapers","allnewspapers");
+	var link=new Array("http://www.gingerhotels.com/",
+			"http://www.facebook.com",
+			"http://www.twitter.com",
+			"http://www.linkedin.com",
+			"http://www.youtube.com",
+			"http://www.gingerhotels.com/contactus/Customer_Feedback.aspx",
+			"http://www.indiapress.org/index.php/",
+			"http://www.onlinenewspapers.com/",
+			"http://newspapers.com/",
+			"http://allnewspapers.com/");
+	for(var i=0;i<name.length;i++)
+	{
+		if(text==name[i])
+		{
+			//window.location=link[i];
+			  //alert("link"+link[i]);
+			  window.open(link[i],'_blank');
+		}
+	}
+}
+function callhref(text)
+{
+	//alert(text);
+	if(text=="index1")
+	{
+		window.location.href=text+".jsp";
+	}
+	else	
+		window.location.href=text+".html";
+		//window.open(text+".html",'_blank');
+	//window.location.href=location of file on server
+}
+</script>
+<script type="text/javascript">
+	
+	$(document).ready(
+		function()
+		{
+			
+			$('#dock2').Fisheye(
+				{
+					maxWidth: 60,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container2',
+					itemWidth: 80,
+					proximity: 80,
+					alignment : 'left',
+					valign: 'bottom',
+					halign : 'center'
+				}
+			)
+		}
+	);
+
+</script>
+
+   <script type="text/javascript">
+   function validate()
+   {
+	   //alert("1");
+  /*  var dt=document.form1.date.value;
+    var hour=document.form1.hr.value;
+    var minute=document.form1.min.value;
+    var second=document.form1.sec.value;
+    
+    if(dt==""||dt==" "||dt==null)
+    {  alert("2");
+      document.getElementById("messageId").innerHTML = "Please fill in the date feild!";
+      document.form1.dd.focus();
+      return false;
+    }
+    if((hour==""||hour==" "||hour==null||minute==""||minute==" "||minute==null||second==""||second==" "||second==null||hour.length<2||minute.length<2||second.length<2)&&(hr.value>1))
+    {  alert("3");
+      document.getElementById("messageId").innerHTML = "Please fill the time correctly in the format mentioned";
+      document.form1.hr.focus();
+      return false;
+    }
+    else
+    {
+    	 alert("d");
+    document.getElementById("messageId").innerHTML = "Wake up Call has been Set";
+    return false;
+    }*/
+	   document.getElementById("messageId").innerHTML = "The Wakeup Call has been Set";
+	   return false;
+   }
+   
+  /* function hour()
+   {
+    var hr= document.form1.hr.value.length;
+    if(hr==2)
+    {
+    document.form1.min.focus();
+    }
+   }
+   function minute()
+   {
+    var min= document.form1.min.value.length;
+    if(min==2)
+    {
+    document.form1.sec.focus();
+    }
+   }
+   */
+   
+   </script>
+
+
+
+<style type="text/css">
+
+
+.sample {
+	border-width: 0px;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-style: outset;
+	
+	
+}
+
+.heading {
+	color: black;
+	margin: 10px;
+	vertical-align: center;
+	text-align: center;
+	font-family: verdana;
+	font-size: 22px;
+	font-weight: bold;
+	color: black;
+	top: 20px;
+}
+
+.sample th {
+	color: black;
+	margin: 10px;
+	vertical-align: center;
+	background-color :  #FDEEF4;
+	text-align: center;
+	font-family: verdana;
+	font-size: 12px;
+	font-weight: medium;
+	color: black;
+	top: 10px;
+}
+
+.txt {
+	color: black;
+	margin: 10px;
+	text-align: center;
+	font-family: verdana;
+	font-size: 12px;
+	color: black;
+	top: 10px;
+}
+</style>
+</head>
+<body>
+<form name="form1" onsubmit="return validate()">
+<div id="form1" align="center" style="margin: 50px 60px 20px 20px;">
+<table align="center">
+<tr>
+<td>&nbsp;</td>
+</tr>
+	<tr>
+        
+		<td colspan="3" class="heading" >
+		<img src="images/clock.png" alt="clock" height="100" width="120" />
+		</td><td>&nbsp;&nbsp</td><td class="heading">Wake up Call</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+</table>
+
+<table align="center" cellspacing="30" cellpadding="5">
+<tr>
+	<td style="font-size: 20px; font-family: verdana" ><label for="date">Set Date:</label></td>
+	
+		<td width="350px" align="left"><input type="text" name="datetime" value="13-06-2012"
+			id="datetime" size="15" maxlength="30" readonly="readonly"> <a
+			href="javascript:NewCssCal('datetime','ddmmyyyy','dropdown',false)"><img
+			src="images/restaurant/cal.gif" style="border-style:none" width="16" height="16" alt="Pick a date"></a></td>
+	</tr>
+	<tr>
+	<td style="font-size: 20px; font-family: verdana" ><label for="time">Set Time:</label></td>
+	<td><input type="text" name="hr" maxlength="2" autocomplete=off  size="2" onkeydown="hour();" value="05">:
+	<input type="text" name="min" maxlength="2" size="2" autocomplete=off  onkeydown="minute()" value="30">:
+	<input type="text" name="sec" maxlength="2" size="2" autocomplete=off value="00" ><font size="1" >(HH:MM:SS)</font></td>
+	</tr>
+	<tr>
+	<td>&nbsp;</td>
+	<td><input type="submit" value="Submit">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="Reset" ></td>
+	</tr>
+</table>
+<div id="messageId" align="center" style=" font-family: verdana; font-size :14px; color:#8B0000; font-weight: bold;"></div></div>
+
+
+ 
+
+		<div class="dock2" id="dock2">
+  <div class="dock-container2">
+  <a class="dock-item2" href="javascript:callhref('index1')"><span>Home</span><img src="images/dock/home.png" alt="Home" /></a> 
+<!--  <a class="dock-item2" href="javascript:call('gingerhotel')"><span>Ginger Hotels</span><img src="images/dock/ginger.png" alt="Ginger Hotels" /></a> -->
+  <!--<a class="dock-item2" href="javascript:callhref('socialnetworks')"><span>Social Networking</span><img src="images/dock/social.png" alt="Social Networking" /></a> 
+  <a class="dock-item2" href="javascript:callhref('news')"><span>Web Channels</span><img src="images/dock/webchannel.png" alt="Web Channels" /></a>
+  <a class="dock-item2" href="javascript:call('youtube')"><span>Youtube</span><img src="images/dock/youtube1.png" alt="InfoEntertainment" /></a>
+  <a class="dock-item2" href="javascript:callhref('newspaper')"><span>Newspaper</span><img src="images/dock/newspaper.png" alt="Info Entertainment" /></a>
+--><a class="dock-item2" href="javascript:callhref('spaReservation')"><span>Spa Reservation</span><img src="images/dock/spa.png" alt="Spa Reservation" /></a>
+  <a class="dock-item2" href="javascript:callhref('restaurant')"><span>Restaurant Booking</span><img src="images/dock/restaurant.png" alt="Restaurant Booking" /></a>
+  <a class="dock-item2" href="javascript:callhref('dispMessage')"><span>Inbox</span><img src="images/dock/message.png" alt="Messages" /></a>
+  <a class="dock-item2" href="javascript:callhref('pickDropService')"><span>Pick and Drop</span><img src="images/dock/pick.png" alt="Pick and Drop" /></a> 
+  <a class="dock-item2" href="javascript:callhref('invoice')"><span>Invoice</span><img src="images/dock/invoice.png" alt="Invoice" /></a>
+  <a class="dock-item2" href="javascript:callhref('emailLogin')"><span>Find Friends</span><img src="images/dock/friends.png" alt="Find Friends" /></a> 
+  </div>
+</div>
+
+</form>
+</body>
+</html>

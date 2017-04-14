@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Ginger Search Desk For City Specific Information</title>
+
+<style type="text/css">
+div.img
+{
+  margin: 2px;
+  height: auto;
+  width: auto;
+  float: left;
+  text-align: center;
+}	
+div.img img
+{
+  display: inline;
+  margin: 3px;
+  border: 1px solid #ffffff;
+}
+div.img a:hover img {border: 1px solid #0000ff;}
+div.desc
+{
+  text-align: center;
+  font-weight: normal;
+  width: 120px;
+  margin: 2px;
+}
+</style>
+<script type="text/javascript">
+function displayLinks()
+{
+ var location = document.getElementById("location").value;
+ var placeLink='http://www.tourisminindia.com/city/'+location+'.aspx';
+ var taxiLink;
+ var restLink='http://bookmyrestaurant.co.in/city-'+location;
+  if(location == 'Mumbai')
+  {
+   taxiLink = 'http://www.ecabs.in/';
+  }
+  if(location == 'Pune')
+  {
+   taxiLink = 'http://www.ecabs.in/';
+  }
+  if(location == 'Ahmedabad')
+  {
+   taxiLink = 'http://www.dialacab.in/';
+  }
+  if(location == 'Bangalore')
+  {
+   taxiLink = 'http://www.easycabs.com/network.aspx';
+  }
+  if(location == 'Chennai')
+  {
+   taxiLink = 'http://www.bookcab.in/';
+  }
+  if(location == 'Delhi')
+  {
+   taxiLink = 'http://www.megacabs.com/';
+  }
+  if(location == 'Goa')
+  {
+   taxiLink = 'http://www.goacabs.com/';
+  }
+  
+  document.getElementById("wiki").innerHTML = '<a target="_blank" href="http://en.wikipedia.org/wiki/'+ location +'" ><img src="Wikipedialogo.png" alt="Wikipedia Info" width="110" height="90" /></a><div class="desc"> Wiki Info Of the City</div>';
+  document.getElementById("POI").innerHTML = '<a target="_blank" href="'+placeLink+'"><img src="PlacesToVisit.jpg" alt="Places Of Interest" width="110" height="90" /></a><div class="desc">Places Of Interest</div>';
+  document.getElementById("taxi").innerHTML = '<a target="_blank" href="'+taxiLink+'"><img src="TaxiService.jpg" alt="Taxi Service" width="110" height="90" /></a><div class="desc">Avail Taxi Service</div>';
+  document.getElementById("restBooking").innerHTML = ' <a target="_blank" href="'+restLink+'"><img src="RestaurantBooking.jpg" alt="Restaurant Booking" width="110" height="90" /></a><div class="desc">Restaurant Booking and Fooding</div>';
+document.getElementById("justDial").innerHTML = ' <a target="_blank" href="http://justdial.com/'+location+'"><img src="justdial.jpg" alt="Restaurant Booking" width="110" height="90" /></a><div class="desc">Just Dial</div>'
+  }
+</script>
+</head>
+<body background="back.jpg" >
+<div  id="imageDiv"  background-color: gray; font-size : 50px; margin-top:40px;">
+<img src ="3.jpg" width="120" height="150">
+<img src ="1.jpg" width="120" height="150">Search Your City Information
+<img src ="4.jpg" width="120" height="150">
+<img src ="2.jpg" width="120" height="150"></div>
+
+<div style=" margin-top:80px;" align="center">
+<form action="">
+<b>Select Geography :</b>&nbsp;&nbsp;&nbsp;<select name="Select Your Location" id="location">
+<option value="Selected" selected="selected">Selected</option>
+
+	<option value="Ahmedabad">Ahmedabad</option>
+	<option value="Bangalore">Bangalore</option>
+	<option value="Chennai">Chennai</option>
+	<option value="Delhi">Delhi</option>
+	<option value="Goa">Goa</option>
+	<option value="Mumbai">Mumbai</option>
+	<option value="Pune">Pune</option>
+
+	
+
+</select>
+&nbsp;&nbsp;&nbsp;
+<input type="button" value="Go" onclick="displayLinks()" />
+</form></div>
+<hr style="width:92%;text-align:center;margin-top:30px;height:1px;margin-left:40px;border:1px;color:#e2e2e2;background-color:#e2e2e2;" />
+<div class="img" id="wiki" style="margin-top:90px;margin-left:100px;">
+</div>
+<div class="img" id="POI" style="margin-top:90px;margin-left:100px;">
+</div>
+<div class="img" id="taxi" style="margin-top:90px;margin-left:100px;">
+ 
+</div>
+<div class="img" id="restBooking" style="margin-top:90px;margin-left:100px;">
+
+</div>
+<div class="img" id="justDial" style="margin-top:90px;margin-left:100px;">
+
+</div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<script src="js/jquery.js"></script>
+<script src="js/keynav.js"></script>
+<script src="js/sliding_effect.js"></script>
+<script src="js/interface.js"></script>
+<title>GingerTV</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+
+function call(text)
+{
+	//alert(text);
+	var name=new Array("facebook","twitter","linkedin","youtube","allambie","gingerfeedback",
+			"jetairways","indigo","kingfisher","goair","airindia","spicejet","cleartrip","makemytrip",
+			"yatra","indianrail","irctc","redbus");
+	var link=new Array("http://www.facebook.com",
+			"http://www.twitter.com/",
+			"http://www.linkedin.com/",
+			"http://www.youtube.com/",
+			"http://172.20.178.121:8080/HotelIBE/Allambie.jsp",
+			"http://www.gingerhotels.com/contactus/Customer_Feedback.aspx",
+			"http://www.jetairways.com/",
+			"http://www.goindigo.in",
+			"http://www.flykingfisher.com/",
+			"http://www.goair.in/",
+			"http://www.airindia.com",
+			"http://www.spicejet.com/",
+			"http://www.cleartrip.com/",
+			"http://www.makemytrip.com/",
+			"http://www.yatra.com/",
+			"http://www.indianrail.gov.in/",
+			"http://www.irctc.co.in/",
+			"http://www.redbus.in/"
+	);			
+	for(var i=0;i<name.length;i++)
+	{
+		if(text==name[i])
+		{
+			//window.location=link[i];
+			  //alert("link"+link[i]);
+			  window.open(link[i],'_blank');
+			
+		}
+	}
+}
+function callhref(text)
+{
+	//alert(text);
+	if(text=="index1")
+	{
+		window.location.href=text+".jsp";
+	}
+	else	
+		window.location.href=text+".html";
+		//window.open(text+".html",'_blank');
+	//window.location.href=location of file on server
+}
+</script>
+
+<script type="text/javascript">
+	
+	$(document).ready(
+		function()
+		{
+			
+			$('#dock2').Fisheye(
+				{
+					maxWidth: 60,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container2',
+					itemWidth: 80,
+					proximity: 80,
+					alignment : 'left',
+					valign: 'bottom',
+					halign : 'center'
+				}
+			)
+		}
+	);
+
+</script>
+</head>
+<body onload=""  style="background-image: url(images/transginger.png) ;background-repeat: no-repeat; ">
+
+	<div class="header">
+<!--		<img src="images/GingerLogo.gif" onclick="callhref('index1')"/>	-->
+	</div>
+
+<div class="container">
+
+<div class="content">
+<center>
+<table border="0px"
+	style="width: 990px; height: 556px; margin-top: 15px;margin-left: 15px; border-color: #c13100; border-width: 2px;"
+	cellpadding="0px" cellspacing="0px">
+	<tr>
+
+		<td align="center">
+		<table style="margin-top: 00px;" border="0px" cellpadding="0px"
+			cellspacing="0px">
+			<tr align="center" style="height: 110px;">
+				<td width="140px"><a href="javascript:callhref('spaReservation')" class="link"><img src="images/dock/spa.png" style=""/></a></td>
+				<td width="140px"><a href="javascript:callhref('restaurant')" class="link"><img src="images/dock/restaurant.png" /></a></td>
+				<td ><a href="javascript:callhref('feedback')" class="link"><img src="images/dock/feedback.png"/></a></td>
+			</tr>
+			<tr align="center" style="height: 50px;">
+				<td width="140px">Spa Reservation</td>
+				<td width="140px">Restaurant</td>
+				<td width="140px">Feedback</td>
+				
+			</tr>
+			<tr align="center" style="height: 110px;margin-top: 00px;">
+				
+                <td ><a href="javascript:callhref('invoice')" class="link"><img src="images/dock/invoice.png"/></a></td>
+				<td ><a href="javascript:callhref('dispMessage')" class="link"><img src="images/dock/message.png"/></a></td>
+				<td ><a href="javascript:callhref('emailLogin')" class="link"><img src="images/dock/friends.png"/></a></td>
+			</tr>
+			<tr align="center" style="height: 50px;">
+	
+				<td width="140px">Invoice</td>
+				<td width="140px">Inbox</td>
+				<td width="140px">Find Friends</td>
+			</tr>
+			<tr align="center" style="height: 110px;margin-top: 00px;">
+				<td><a href="javascript:callhref('pickDropService')" class="link"><img src="images/dock/pick.png"/></a></td>
+                <td><a href="javascript:callhref('wakeup')" class="link"><img src="images/dock/wakeup.png"/></a></td>
+				<td><a href="javascript:callhref('conference')" class="link"><img src="images/dock/conf.png"/></a></td>
+			</tr>
+			<tr align="center" style="height: 50px;">
+				<td width="140px">Pick and Drop</td>
+				<td width="140px">Wakeup Call</td>
+				<td width="140px">Conference Room Booking</td>
+			</tr>
+		</table><br/>
+		</td>
+	</tr>
+</table>
+</center>
+</div>
+</div>
+<div class="dock2" id="dock2">
+  <div class="dock-container2">
+  <a class="dock-item2" href="javascript:callhref('index1')"><span>Home</span><img src="images/dock/home.png" alt="Home" /></a> 
+  <a class="dock-item2" href="javascript:call('allambie')"><span>Allambie Hotels</span><img src="images/dock/allambie.png" alt="Allambie Hotels" /></a> 
+  <a class="dock-item2" href="javascript:callhref('guestServices')"><span>Guest Services</span><img src="images/dock/guest.png" alt="Guest Services" /></a>
+  </div>
+</div>
+</body>
+</html>

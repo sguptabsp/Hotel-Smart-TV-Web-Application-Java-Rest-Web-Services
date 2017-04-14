@@ -1,0 +1,15 @@
+@CHARSET "ISO-8859-1";
+body {
+	margin:0;
+    margin-left:100px;
+	padding:0;
+	color: #333;
+	font: normal 0.6em sans-serif,Arial;
+	background-color: #EDEDED;
+	background-image: url(images/bg1.jpg);
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+	background-position: center top;
+	width: 100%;
+	overflow: hidden;
+}

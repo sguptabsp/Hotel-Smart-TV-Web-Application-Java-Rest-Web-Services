@@ -1,0 +1,316 @@
+<html>
+<head>
+<title>Pick & Drop Service</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<script type="text/javascript" src="js/datetimepicker_css.js"></script>
+<script type="text/javascript" src="jquery-latest.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<script src="js/jquery.js"></script>
+<script src="js/keynav.js"></script>
+<script src="js/sliding_effect.js"></script>
+<script src="js/interface.js"></script>
+<script type="text/javascript">
+function call(text)
+{
+	var name=new Array("gingerhotel","facebook","twitter","linkedin","youtube","gingerfeedback","indiapress",
+			"onlinenewspapers","newspapers","allnewspapers");
+	var link=new Array("http://www.gingerhotels.com/",
+			"http://www.facebook.com",
+			"http://www.twitter.com",
+			"http://www.linkedin.com",
+			"http://www.youtube.com",
+			"http://www.gingerhotels.com/contactus/Customer_Feedback.aspx",
+			"http://www.indiapress.org/index.php/",
+			"http://www.onlinenewspapers.com/",
+			"http://newspapers.com/",
+			"http://allnewspapers.com/");
+	for(var i=0;i<name.length;i++)
+	{
+		if(text==name[i])
+		{
+			//window.location=link[i];
+			  //alert("link"+link[i]);
+			  window.open(link[i],'_blank');
+		}
+	}
+}
+function callhref(text)
+{
+	//alert(text);
+	if(text=="index1")
+	{
+		window.location.href=text+".jsp";
+	}
+	else	
+		window.location.href=text+".html";
+		//window.open(text+".html",'_blank');
+	//window.location.href=location of file on server
+}
+</script>
+
+<SCRIPT type="text/javascript">
+	//document.addEventListener('keypress', sendButtonPressed, true);
+	
+	function sendButtonPressed(e)
+	{
+	var key_code = event.keyCode;
+	var v_key    = map_key(key_code);
+	if (v_key == 27) //key escape to show weather+news
+	{	
+	close_window();
+	e.returnValue=false;
+	}	
+	}
+
+	function close_window()
+	{
+	FrameworkPlugin.tcs_loadApp('/demo/stb/html-apps/apps/settings/settings.html');
+	return;
+	}
+
+	var state = 0;
+	function gup( url, name )
+	{
+	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
+	var regexS = "[\\?&]"+name+"=([^&#]*)"; 
+	var regex = new RegExp( regexS );  
+	var results = regex.exec(url);//regex.exec( window.location.href );  
+	if( results == null )   
+	return "";  
+	else   
+	return results[1];
+	}	
+	
+</SCRIPT>	
+<script type="text/javascript">
+
+var state = 0;
+function gup( url, name )
+	{
+	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
+	var regexS = "[\\?&]"+name+"=([^&#]*)"; 
+	var regex = new RegExp( regexS );  
+	var results = regex.exec(url);//regex.exec( window.location.href );  
+	if( results == null )   
+	return "";  
+	else   
+	return results[1];
+	}	
+	function onSuccess() { 	
+	
+	 var name = new RegExp("^[0-9a-zA-Z\\s\\.]{1,45}$");
+	 var roomno = new RegExp("^[0-9]{1,5}$");
+
+	if(!document.pickdrop.gName.value.match(name)){
+		document.getElementById("messageId").innerHTML="<center><b>Please Enter a valid Guest Name.</b></center>";
+		document.pickdrop.gName.focus();
+		return false;
+	}
+	if(!document.pickdrop.room_no.value.match(roomno)){
+		document.getElementById("messageId").innerHTML="<center><b>Please Enter a valid Room No.</b></center>";
+		document.pickdrop.room_no.focus();
+		return false;
+	}
+	if(!document.pickdrop.noOfPass.value.match(roomno)){
+		document.getElementById("messageId").innerHTML="<center><b>Please Enter a valid No. of Passengers.</b></center>";
+		document.pickdrop.noOfPass.focus();
+		return false;
+	}
+	if(!document.pickdrop.destination.value.match(name)){
+		document.getElementById("messageId").innerHTML="<center><b>Please Enter a valid Destination.</b></center>";
+		document.pickdrop.destination.focus();
+		return false;
+	}
+
+	if(document.pickdrop.datetime.value=='')
+    {
+      	 document.getElementById("messageId").innerHTML="<center><b>Please select the Date & Time.</b></center>";
+      	 document.pickdrop.datetime.focus();
+      	 return false;
+    }
+	document.getElementById("messageId").innerHTML='';
+	var guestName=document.pickdrop.gName.value;
+	var roomNo=document.pickdrop.room_no.value;
+	var noOfPass=document.pickdrop.noOfPass.value;
+	var destination=document.pickdrop.destination.value;
+	var datetime=document.pickdrop.datetime.value;
+
+	//validateMsgId(guestName,roomNo,noOfPass,destination,datetime);
+	//alert("urlDisplay:-"+urlDisplay);
+	//state = gup( window.location.href, 'param');
+	//$.getScript(urlDisplay);
+    validateMsg();
+	}
+	
+	function validateMsg()
+	{  
+		document.getElementById("messageId").innerHTML="<center><b>Your service has been booked.</b></center>";
+	}
+
+	function validateMsgId(guestName,roomNo,noOfPass,destination,datetime) {
+
+  var urlDisplay = 'http://172.17.199.87:8080/RestWebService/rest/pickDrop?guestName='+guestName+'&room_no='+roomNo+'&noOfPass='+noOfPass+'&destination='+destination+'&DateTime='+datetime+'&callback=onPickDrop';
+
+  //alert(urlDisplay);
+   try
+   {   
+	   req = new XMLHttpRequest();  
+   }
+   catch(e)
+   {   
+    try
+    {     
+    	req = new ActiveXObject("Msxml2.XMLHTTP");     
+    }
+    catch(e)
+    {     
+     try
+     { 
+    	 req = new ActiveXObject("Microsoft.XMLHTTP");       
+     }
+     catch(e)
+     {       
+      alert("Your browser does not support AJAX.");       
+      return false;       
+     }     
+    }   
+   }
+   req.open("GET", urlDisplay, true);
+   req.onreadystatechange = function(valObj){
+	   if(req.readyState == 4)
+		  {
+			   if(req.status == 200)
+			   {
+				var responsemsg =req.responseText;
+				if(responsemsg=="Success"){
+					document.getElementById("messageId").innerHTML="<center><b>Your service has been booked.</b></center>";
+				}
+				else{
+				document.getElementById("messageId").innerHTML="<center><b>Internal error occurred.</b></center>";
+			   }
+			   }
+			   else
+			   {
+			    document.getElementById("messageId").innerHTML="<center><b>Error: "+ req.statusText +" "+ req.status+"</b></center>";
+			   }
+		  }	   
+    };
+   req.send(null);
+}
+
+</script>
+<script type="text/javascript">
+	
+	$(document).ready(
+		function()
+		{
+			
+			$('#dock2').Fisheye(
+				{
+					maxWidth: 60,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container2',
+					itemWidth: 80,
+					proximity: 80,
+					alignment : 'left',
+					valign: 'bottom',
+					halign : 'center'
+				}
+			)
+		}
+	);
+
+</script>
+<style type="text/css">
+<!--
+body {
+	background-image: url();
+	background-color: #AEBF76;
+	margin-left: 225px;
+	margin-top: 50px;
+	font-size:14px;
+	font-family: Verdana;
+}
+</style>
+
+</head>
+<body>
+<form name="pickdrop">
+<table
+	style="background-color: #F8F8F8; margin-top: 0px; margin-left: 0px; border: 1px solid #666; width: 500px; height: 340px; position: relative; top: 0px; padding-top: 0px;">
+	<tr>
+		<td
+			style='color: #585858; font-family: verdana; font-weight: bold; font-size: 18px; background-color: #A9D0F5'
+			align="center">Pick and Drop Service</td>
+	</tr>
+
+
+	<tr>
+		<td>
+		<div id="messageId" style="align:center; font-family: verdana; font-size :12px; color:maroon;"></div>
+		<div
+			style="font-family: verdana; width: 500px; background-position: top; background-image: url('images/taxi.jpg'); background-repeat: no-repeat; margin-top: 0px; ">
+		<table width="500px" border="0" cellpadding="8">
+			<tr>
+				<td width="200px" height="40px">Guest Name</td>
+				<td width="200px"><input type="text" id="gName" name="gName" value="John Miller"
+					size="30"></input></td>
+			</tr>
+			<tr>
+				<td>Room No.</td>
+				<td height="40px"><input type="text" id="room_no" value="109"
+					name="room_no" size="30"></input></td>
+			</tr>
+			<tr>
+				<td>No. Of Passengers</td>
+				<td height="40px"><input type="text" id="noOfPass" value="3"
+					name="noOfPass" size="30"></input></td>
+			</tr>
+			<tr>
+				<td>Destination</td>
+				<td height="40px"><input type="text" id="destination" value="Airport"
+					name="destination" size="30"></input></td>
+			</tr>
+
+			<tr>
+				<td>Date/Time</td>
+
+				<td width="400px"><input type="text" name="datetime" id="datetime" size="15"
+					maxlength="30" readonly="readonly" value="15-06-2012 14:25"> <a
+					href="javascript:NewCssCal('datetime','ddmmyyyy','dropdown',true)"><img
+					src="images/cal.gif" style="border-style: none" width="16"
+					height="16" alt="Pick a date"></a></td>
+
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<img src="images/bookservice.jpg" onclick="onSuccess()" /></td>
+			</tr>
+		</table>
+		</div>
+		</td>
+	</tr>
+</table>
+
+<div class="dock2" id="dock2">
+  <div class="dock-container2">
+  <a class="dock-item2" href="javascript:callhref('index1')"><span>Home</span><img src="images/dock/home.png" alt="Home" /></a> 
+<!--  <a class="dock-item2" href="javascript:call('gingerhotel')"><span>Ginger Hotels</span><img src="images/dock/ginger.png" alt="Ginger Hotels" /></a> -->
+<!--   <a class="dock-item2" href="javascript:callhref('socialnetworks')"><span>Social Networking</span><img src="images/dock/social.png" alt="Social Networking" /></a> --> 
+<!--   <a class="dock-item2" href="javascript:callhref('news')"><span>Web Channels</span><img src="images/dock/webchannel.png" alt="Web Channels" /></a> -->
+ <!--  <a class="dock-item2" href="javascript:call('youtube')"><span>Youtube</span><img src="images/dock/youtube1.png" alt="InfoEntertainment" /></a> -->
+ <!-- <a class="dock-item2" href="javascript:callhref('newspaper')"><span>Newspaper</span><img src="images/dock/newspaper.png" alt="Info Entertainment" /></a>-->
+<a class="dock-item2" href="javascript:callhref('feedback')"><span>Feedback</span><img src="images/dock/feedback.png" alt="Feedback" /></a>
+  <a class="dock-item2" href="javascript:callhref('spaReservation')"><span>Spa Reservation</span><img src="images/dock/spa.png" alt="Spa Reservation" /></a>
+  <a class="dock-item2" href="javascript:callhref('restaurant')"><span>Restaurant Booking</span><img src="images/dock/restaurant.png" alt="Restaurant Booking" /></a>
+  <a class="dock-item2" href="javascript:callhref('dispMessage')"><span>Inbox</span><img src="images/dock/message.png" alt="Messages" /></a>
+  <a class="dock-item2" href="javascript:callhref('invoice')"><span>Invoice</span><img src="images/dock/invoice.png" alt="Invoice" /></a>
+  <a class="dock-item2" href="javascript:callhref('emailLogin')"><span>Find Friends</span><img src="images/dock/friends.png" alt="Find Friends" /></a>  
+  </div>
+</div>
+</body>
+</html>

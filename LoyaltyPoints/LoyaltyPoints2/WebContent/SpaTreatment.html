@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>Your Loyalty Points</title>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="sliding_effect.js"></script>
+	<style type="text/css">
+div.img
+{
+  margin: 2px;
+  height: auto;
+  width: auto;
+  float: left;
+  text-align: center;
+}	
+
+p.main
+{
+width:650px; 
+word-wrap:break-word;
+}
+
+</style>
+<script type="text/javascript">
+function onDisplay()
+{   
+	
+	document.getElementById("messageId").innerHTML="Dear John Miller You Have Redeemed Your Points. Your balance points is 1200.Thankyou for using our Service!!"; 
+	else
+	return false;
+}
+</script>	
+	</head>
+	<body>
+	<div class="img">
+ <a target="_blank" href="loyalty-points1.htm"><img src="loyalty-points1.jpg" alt="loyalty-points" width="1300" height="180" /></a>
+</div>
+	 		<div id="navigation-block">
+        	<img src="background.jpg" id="hide" />
+            <h2><span>Your Loyalty Points</span></h2>
+            
+            <ul id="sliding-navigation">
+                <li class="sliding-element"><h3>Different Loyalty Transactions</h3></li>
+                <li class="sliding-element"><a href="http://localhost:8080/LoyaltyPoints2/demo1.html" >Earn Points</a></li>
+                 <li class="sliding-element"><a href="http://localhost:8080/LoyaltyPoints2/demo2.html">Redeem Points</a></li>
+                <li class="sliding-element"><a href="http://localhost:8080/LoyaltyPoints2/demo3.html">Purchase Points</a></li>
+            </ul>
+        </div>
+<img src="images/spa_massage_masthead.jpg" alt="spa" align="right" style=margin-right:250px/>
+<h3 align="left" style=color:#FF9966;margin-left:280px;><b>Spa Treatment</b></h3>
+<p class="main" align="justify" style=margin-right:290px>Experience a fresh and rejuvenating haven at the Spa at Ista, a place to restore and harmonise energies. Inspired and created by IHHR the group behind the world renowned Ananda in the Himalayas, the experiences offered at Ista are designed and provided by the best in the world. With our skilled therapists and consultants trained at Ananda, celebrate total wellbeing through the integration of Ayurveda and International Experiences from across the globe.</p>
+<form name="CarRental" >
+<div style="margin: 50px 0px 20px 225px; ">
+<table align="center" border="1" cellpadding="5">
+<tr>
+<th>Sr. No.</th>
+<th>Service Name</th>
+<th>Time Duration</th>
+<th>Points Needed</th>
+<th>Redeem Points</th>
+</tr>
+<tr>
+<td>1.</td>
+<td>Hot Stone Massage</td>
+<td>1 and half hour</td>
+<td>1500</td>
+<td align="center">
+<input type="button" name="b1" value="Redeem" onclick="onDisplay();"/>
+</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>Fango Mud Treatment</td>
+<td>2 hours</td>
+<td>2800</td>
+<td align="center"><input type="button" name="b2" value="Redeem"/></td>
+</tr>
+<tr>
+<td>3.</td>
+<td>Body Mask</td>
+<td>1 hour</td>
+<td>1900</td>
+<td  align="center"><input type="button" name="b1" value="Redeem" onclick="onDisplay();"/></td>
+</tr>
+</table>
+<br></br>
+<div id="messageId" align ="center" style=" font-family: verdana; font-size :14px; color:#FFFFFF; font-weight: bold;"></div>
+</div>
+</form>	
+</body>
+</html>

@@ -1,0 +1,774 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>La Cantina</title>
+
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<script src="js1/jquery-1.4.4.min.js"></script>	
+<script type="text/javascript"  src="js/datetimepicker_css.js"></script>
+<script type="text/javascript"  src="js1/jquery-latest.js"></script>
+<script type="text/javascript"  src="js1/jquery.min.js"></script>
+<script type="text/javascript"  src="js1/jquery-ui.min.js"></script>
+
+<script src="js/sliding_effect.js"></script>
+<script src="js/interface.js"></script>
+<script type="text/javascript">
+function call(text)
+{
+	var name=new Array("gingerhotel","facebook","twitter","linkedin","youtube","gingerfeedback","indiapress",
+			"onlinenewspapers","newspapers","allnewspapers");
+	var link=new Array("http://www.gingerhotels.com/",
+			"http://www.facebook.com",
+			"http://www.twitter.com",
+			"http://www.linkedin.com",
+			"http://www.youtube.com",
+			"http://www.gingerhotels.com/contactus/Customer_Feedback.aspx",
+			"http://www.indiapress.org/index.php/",
+			"http://www.onlinenewspapers.com/",
+			"http://newspapers.com/",
+			"http://allnewspapers.com/");
+	for(var i=0;i<name.length;i++)
+	{
+		if(text==name[i])
+		{
+			//window.location=link[i];
+			  //alert("link"+link[i]);
+			  window.open(link[i],'_blank');
+		}
+	}
+}
+function callhref(text)
+{
+	//alert(text);
+	if(text=="index1")
+	{
+		window.location.href=text+".jsp";
+	}
+	else	
+		window.location.href=text+".html";
+		//window.open(text+".html",'_blank');
+	//window.location.href=location of file on server
+}
+</script>
+<script type="text/javascript">
+	
+	$(document).ready(
+		function()
+		{
+			
+			$('#dock2').Fisheye(
+				{
+					maxWidth: 60,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container2',
+					itemWidth: 80,
+					proximity: 80,
+					alignment : 'left',
+					valign: 'bottom',
+					halign : 'center'
+				}
+			)
+		}
+	);
+
+</script>
+
+<script>
+	function hideLayOut() {
+		document.getElementById('layoutdiv').style.visibility = 'hidden';
+		document.getElementById('layoutdiv').style.height = '';
+		document.getElementById('layoutdiv').style.display = 'none';
+		
+		document.getElementById('dispmessage').style.visibility = 'hidden';
+		document.getElementById('dispmessage').style.height = '';
+		document.getElementById('dispmessage').style.display = 'none';
+
+		document.getElementById('alertmessage').style.display= 'none';
+
+		document.getElementById('borderDiv').style.height = '375px';
+	}
+	
+	function resSelect() {
+		var radios = document.form1.foodDelLoc; 
+		 for (var i=0; i <radios.length; i++) { 
+		  if (radios[i].checked) { 
+			  if (radios[i].value == "res") {
+			  
+					document.getElementById('dispmessage').style.display = 'none'; 
+					document.getElementById('alertmessage').style.display= 'none';
+				  	document.getElementById('layoutdiv').style.visibility = 'visible';
+					document.getElementById('layoutdiv').style.display = '';
+					document.getElementById('borderDiv').style.height = '660px';
+					
+				} else {
+					hideLayOut();
+				}
+		  } 
+		 }
+
+}
+
+var url;
+function dispFun()
+{
+	var eleValue=0;
+	
+	var count =0;
+	for(var i=1;i<=6;i++)
+	{
+		var ele = eval("document.forms[0].c"+i);
+		if(ele.checked)
+		{
+		count = count+1;
+		eleValue = ele.value
+		}
+	}
+	
+	if(count==0)
+	{
+	document.getElementById("alertmessage").style.visibility="visible";
+	document.getElementById("alertmessage").style.display='';
+	return false;
+	}
+
+	//url = "http://210.210.26.183:8080/WakeupAlarmService/rest/postCharges?hotelId=PNQ1&postingDate=20110307&resNo=0000026550&cashierId=183030&folio=01&concept=DINNER&price="+eleValue ;
+	
+	//bhargav
+	
+	document.getElementById("alertmessage").style.visibility="hidden";
+	document.getElementById("alertmessage").style.display='';
+	document.getElementById("dispmessage").style.visibility="visible";
+	document.getElementById("dispmessage").style.display='';
+	//alert("url :--->"+document.getElementById("dispmessage"));
+	//bhargav
+	
+}
+
+function order_send_status(eid , status)
+{
+  switch(status)
+  {
+    case -1://alert("Error setting alarm in server, please try again");
+	        document.getElementById("dispmessage").innerHTML="Sorry. Your order could not be placed. Please try again.";
+	break;
+
+	case 1:var file_cont=tcs_readFileHttp('/tmp/order_temp.txt');
+
+	       if((file_cont.search('SUCCESS'))>=0)
+		   {
+			 //alert("Alarm set successfully");
+			 document.getElementById("dispmessage").innerHTML="Thank you ...Your order has been placed.";
+		   }
+		   else
+		   {
+			 //alert("Error setting alarm in server, please try again");
+			 document.getElementById("dispmessage").innerHTML="Sorry. Your order could not be placed. Please try again.";
+		   }
+    break;
+  }
+ return;
+}
+
+function callMe(valObj)
+{
+	//if(valObj.checked)
+	//alert("value :--->"+valObj.value);
+	for(var i=1;i<=6;i++)
+	{
+		var ele = eval("document.forms[0].c"+i);
+		if(ele.checked)
+		ele.checked=false;
+	}
+	valObj.checked=true;
+}
+
+
+</script>
+<style type="text/css">
+.sample {
+	border-width: 1px;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-style: outset;
+	border-color: #DDDDDD;
+}
+
+.sample th {
+	border-width: 1px;
+	padding: 1px;
+	border-style: inset;
+	color: white;
+	border-color: #DDDDDD;
+	border: 1px solid #DDDDDD;
+	-moz-border-radius: ;
+}
+
+.sample td {
+	border-width: 1px;
+	padding: 1px;
+	text-align: left;
+	border-style: inset;
+	border-color: #DDDDDD;
+	border: 1px solid #DDDDDD;
+	-moz-border-radius: ;
+}
+
+.label {
+	text-decoration: none;
+	text-align: left;
+	color: #084B8A;
+	font-family:  verdana;
+	font-size: 15px;
+	font-weight: medium;
+}
+
+.heading {
+	text-decoration: none;
+	color: white;
+	text-align: center;
+	font-family:verdana;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.button {
+	text-decoration: none;
+	color: #084B8A;
+	font-family: verdana;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #A9D0F5;
+	border: none;
+	outline: none;
+	width: 60px;
+	height: 20px;
+	cursor: hand;
+}
+
+.button1 {
+	text-decoration: none;
+	color: #084B8A;
+	font-family: verdana;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: white;
+	border: none;
+	outline: none;
+	width: 65px;
+	height: 20px;
+	cursor: hand;
+}
+
+a {
+	text-decoration: none;
+	color: #084B8A;
+	font-family: verdana;
+}
+.sample1 {
+	border-width: 1px;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-style: outset;
+	border-color: gray;
+	background-color: #F8F8F8;
+}
+</style>
+
+<script>
+  $(document).ready(function(){
+	   
+		  $("#A1").toggle(function() {
+		    $(this).animate({ backgroundColor: "#800000" }, 1000);
+		     handler('A1');
+				},function() {
+		    		$(this).animate({ backgroundColor: "#385E0F" }, 500);
+		    		 removable('A1');
+			});
+		 $("#A2").toggle(function() {
+		    $(this).animate({ backgroundColor: "#800000" }, 1000);
+		     handler('A2');
+				},function() {
+		    		$(this).animate({ backgroundColor: "#385E0F" }, 500);
+		    		 removable('A2');
+			});
+
+		 $("#A7").toggle(function() {
+		    $(this).animate({ backgroundColor: "#800000" }, 1000);
+			 handler('A7');
+				},function() {
+		    		$(this).animate({ backgroundColor: "#385E0F" }, 500);
+		    		 removable('A7');
+			});
+
+		 $("#A8").toggle(function() {
+		    $(this).animate({ backgroundColor: "#800000" }, 1000);
+		     handler('A8');
+				},function() {
+		    		$(this).animate({ backgroundColor: "#385E0F" }, 500);
+		    		 removable('A8');
+			});
+		 $("#A9").toggle(function() {
+		    $(this).animate({ backgroundColor: "#800000" }, 1000);
+		     handler('A9');
+				},function() {
+		    		$(this).animate({ backgroundColor: "#385E0F" }, 500);
+		    		 removable('A9');
+			});
+		 $("#A10").toggle(function() {
+		    $(this).animate({ backgroundColor: "#800000" }, 1000);
+		     handler('A10');
+				},function() {
+		    		$(this).animate({ backgroundColor: "#385E0F" }, 500);
+		    		  removable('A10');
+			});
+		 $("#B1").toggle(function() {
+		    $(this).animate({ backgroundColor: "#800000" }, 1000);
+		    handler('B1');
+				},function() {
+		    		$(this).animate({ backgroundColor: "#385E0F" }, 500);
+		    		removable('B1');
+			});
+		 $("#B2").toggle(function() {
+		    $(this).animate({ backgroundColor: "#800000" }, 1000);
+		    handler('B2');
+				},function() {
+		    		$(this).animate({ backgroundColor: "#385E0F" }, 500);
+		    		 removable('B2');
+			});
+		
+  });
+
+
+  function handler(data) {
+	var selectedseats =document.form1.status.value;
+	var arrseats=document.form1.status.value.split(',');
+	if(selectedseats=="")
+		{
+			selectedseats=data;
+		}else{
+			selectedseats=selectedseats+","+data;
+	} 	
+  document.form1.status.value=selectedseats;
+ }
+ function removable(data) {
+	var selectedseats =document.form1.status.value;
+	var arrseats=document.form1.status.value.split(',');
+	if(arrseats.length==0)
+	{
+	}else{
+		var temp="";
+		var temp1="";
+		for(i=0;i<arrseats.length;i++) {
+	
+			if(arrseats[i]!=data)
+			{
+				temp=temp+","+arrseats[i];
+			}
+		}
+        selectedseats=temp.substring(1);
+	} 	
+  document.form1.status.value=selectedseats;
+ }
+
+  </script>
+  <style>
+  .greenblock { 
+    color: #F8F8F8;
+    background-color: #385E0F;
+    width: 25px; 
+    height: 20px;
+    margin: 10px; 
+    vertical-align: center;
+	border-width: 1px;
+	padding: 2px;
+	text-align: center;
+	border-style: inset;
+	border-color: gray;
+	border: 1px solid black;
+
+  }
+  .redblock { 
+    color: white;
+    background-color: #800000;
+    width: 25px; 
+    height: 20px;
+    margin: 10px; 
+    vertical-align: center;
+	border-width: 1px;
+	padding: 2px;
+	text-align: center;
+	border-style: inset;
+	border-color: gray;
+	border: 1px solid black;
+  }
+   .yellowredblock { 
+    color: #F8F8F8;
+    background-color: #EEC900;
+    width: 25px; 
+    height: 20px;
+    margin: 10px; 
+    vertical-align: center;
+	border-width: 1px;
+	padding: 2px;
+	text-align: center;
+	border-style: groove;
+	border-color: gray;
+	border: 1px solid black;
+  }
+
+.service {
+    color: white;
+    background-color: #C0C0C0;
+    margin: 10px; 
+    vertical-align: center
+}
+
+.txt{
+	font-family: verdana;
+	font-size: 12px;
+	font-weight: medium;
+	color: black;
+	top: 10px;
+}
+.txtserv{
+	font-family: verdana;
+	font-size: 15px;
+	font-weight: medium;
+	font-style: regular;
+	color: black;
+}
+.blocksmall { 
+    color: white;
+    width: 7px; 
+    height: 7px;
+  }
+
+ 
+</style>
+
+<style type="text/css">
+<!--
+
+#apDiv1 {
+	position:absolute;
+	left:10px;
+	top:13px;
+	width:375px;
+	height:43px;
+	z-index:1;
+}
+#apDiv2 {
+	position:absolute;
+	left:9px;
+	top:60px;
+	width:600px;
+	height:211px;
+	z-index:2;
+	background-image: url(images/restaurant/table_bg.png);
+}
+.style1 {
+	font-size: 6px;
+	color: #FFFEFF;
+}
+.style7 {font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 13px; }
+.style8 {font-size: 12px}
+.style9 {font-family: Verdana, Arial, Helvetica, sans-serif}
+.style10 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; }
+.style11 {
+	color: #EFEFEF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 28px;
+	font-weight: bold;
+}
+#apDiv3 {
+	position:absolute;
+	left:225px;
+	top:188px;
+	width:158px;
+	height:24px;
+	z-index:1;
+}
+#apDiv4 {
+	position:absolute;
+	left:224px;
+	top:218px;
+	width:159px;
+	height:22px;
+	z-index:2;
+}
+#apDiv5 {
+	position:absolute;
+	left:223px;
+	top:189px;
+	width:194px;
+	height:21px;
+	z-index:3;
+}
+#apDiv6 {
+	position:absolute;
+	left:225px;
+	top:260px;
+	width:121px;
+	height:23px;
+	z-index:4;
+}
+-->
+</style>
+</head>
+<body onload="javascript: hideLayOut();">
+
+<form name="form1">
+
+
+<div id="borderDiv"
+	style="margin: 50px 0px 100px 225px; border:1px solid #666; width:600px; height:400px; position:relative; top:1px; padding-top:2px;background-color:#F8F8F8;">
+
+
+<div style='color:#585858;font-family:verdana; font-weight:bold;font-size:18px;background-color:#A9D0F5' align="center">Order a Meal from LaCantena</div>
+<div id="imageDiv" style="font-family:Verdana;width:600px;">
+<div style='margin-top:10px;' >
+
+<table class="sample" width="600px" cellspacing="2" cellpadding="2">
+	<tr>
+		<td><input type="checkbox" name="c1" value="700" onclick="callMe(this)"/></td>
+		<td align="center" valign="top"><img src="images/restaurant/de_polloa_la_cerveza.jpg" width="75px" height="75px" align="middle" style="margin-left:45px;"></img>
+		<font style='font-family: verdana;font-size:12px;'><center>Pollo al cerveza (grilled chicken)</br></center></font><font style="color:#900000 ;font-family: verdana;font-size:12px;font-weight:bold"><center>Price: 700 INR</center></font></td>
+
+		<td><input type="checkbox" name="c2" value="550" onclick="callMe(this)"/></td>
+		<td align="left" valign="top"><img src="images/restaurant/Prawnszin_diablo_sauce.jpg" width="75px" height="75px" align="middle" style="margin-left:45px;"></img>
+		<font style='font-family: verdana;font-size:12px;' align="center"><center>Chipotle seasoned Prawnszin diablo sauce</center></font><font style="color:#900000;font-family: verdana;font-size:11px;font-weight:bold"><center>Price: 550 INR</center></font></td>
+
+		<td><input type="checkbox" name="c3" value="420" onclick="callMe(this)"/></td>
+		<td align="left" valign="top"><img src="images/restaurant/Grilled_Veggie_Pasta_Primavera.jpg" width="75px" height="75px" align="middle" style="margin-left:45px;"></img>
+		<font style='font-family: verdana;font-size:12px;' align="center"><center>Grilled veggie pasta primavera</center></font><font style="color:#900000;font-family: verdana;font-size:11px;font-weight:bold"><center>Price: 420 INR</center></font></td>
+	</tr>
+
+
+	<tr>
+		<td><input type="checkbox" name="c4" value="475" onclick="callMe(this)"/></td>
+		<td align="left" valign="top"><img src="images/restaurant/vegStuffedPeppers.jpg" width="75px" height="75px" align="middle" style="margin-left:45px;"></img>
+		<font style='font-family: verdana;font-size:12px;'><center>Veg stuffed peppers</center></font><font style="color:#900000;font-family: verdana;font-size:11px;font-weight:bold"><center>Price: 475 INR</center></font></td>
+
+		<td><input type="checkbox" name="c5" value="850" onclick="callMe(this)"/></td>
+		<td align="left" valign="top"><img src="images/restaurant/creamy_cajun_chicken_pasta.jpg" width="75px" height="75px" align="middle" style="margin-left:45px;"></img>
+		<font style='font-family: verdana;font-size:12px;'><center>Creamy chicken pasta</center></font><font style="color:#900000;font-family: verdana;font-size:11px;font-weight:bold"><center>Price: 850 INR</center></font></td>
+
+		<td><input type="checkbox" name="c6" value="675" onclick="callMe(this)"/></td>
+		<td align="left" valign="top"><img src="images/restaurant/penne_alla_vodka.jpg" width="75px" height="75px" align="middle" style="margin-left:45px;"></img>
+		<font style='font-family: verdana;font-size:12px;'><center>Penne alla vodka</center></font><font style="color:#900000;font-family: verdana;font-size:11px;font-weight:bold"><center>Price: 675 INR</center></font></td>
+
+	</tr>
+
+</table>
+
+
+<div >
+<table width="600px" cellspacing="2" cellpadding="2" align="center">
+
+	<tr align="left">
+		<td width="250px"><label class="txt" >Restaurant Booking
+		Date & Time:</label></td>
+		<td width="350px" align="left"><input type="text" name="datetime" value="11-06-2012"
+			id="datetime" size="15" maxlength="30" readonly="readonly"> <a
+			href="javascript:NewCssCal('datetime','ddmmyyyy','dropdown',true)"><img
+			src="images/restaurant/cal.gif" style="border-style:none" width="16" height="16" alt="Pick a date"></a></td>
+			<td><div style='margin-top: 15px; text-align: right; margin-right: 10px;'>
+<a href="#" onclick="dispFun()"><IMG SRC="images/restaurant/order.png" WIDTH="50" HEIGHT="20" BORDER=0 ALT=""></a></div>
+</div></td>	
+	</tr>
+	<tr align="left">
+		<td><label class="txt" >Where would you like us to serve you?</label></td>
+		<td align="left"><input type="radio" name="foodDelLoc"
+			onclick="javascript:resSelect()" value="room"><label
+			class="txt"  >In Room</label> <input type="radio" name="foodDelLoc"
+			onclick="javascript:resSelect()" value="res"><label
+			class="txt"  >In Restaurant</label></td>
+	</tr>
+</table>
+</div>
+<div id="layoutdiv" style="display:none">
+
+<table border="0" cellpadding="0" width="600px">
+
+	<tr>
+		<td width="250px" align="right"><label class="txt">Table
+		reserved : </label></td>
+		<td width="350px" align="left"><input type="text" id="status"
+			name="status" readonly="readonly" /></td>
+	</tr>
+</table>
+
+
+<table border="0" class="sample1" cellpadding="0" align="center"
+	cellspacing="0">
+	<tr id="1">
+		<td colspan="4" class="service">
+		<div align="center" width="100px" height="60px"><label
+			class="txtserv"> SERVICE COUNTER </label></div>
+		</td>
+		<td></td>
+		<td></td>
+		<td>
+		<div class="greenblock" align="center" id="A8"><label
+			class="txt" style="color: #F8F8F8"> A8 </label></div>
+		</td>
+		<td>
+		<div class="greenblock" align="center" id="A7"><label
+			class="txt" style="color: #F8F8F8"> A7 </label></div>
+		</td>
+
+	</tr>
+	<tr id="2">
+
+		<td>
+		<div class="greenblock" id="A10"><label class="txt"
+			align="center" style="color: #F8F8F8"> A10 </label></div>
+		</td>
+		<td>
+		<div class="greenblock" align="center" id="A9"><label
+			class="txt" style="color: #F8F8F8"> A9 </label></div>
+		</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>
+		<div class="greenblock" align="center" id="A1"><label
+			class="txt" style="color: #F8F8F8"> A1 </label></div>
+		</td>
+		<td>
+		<div class="greenblock" align="center" id="A2"><label
+			class="txt" style="color: #F8F8F8"> A2 </label></div>
+		</td>
+
+	</tr>
+	<tr id="3">
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+
+	</tr>
+	<tr id="4">
+		<td></td>
+		<td></td>
+		<td></td>
+		<td rowspan="3" class="service">
+		<div align="center" id="SaladBar"><label class="txtserv">
+		Salad Bar</label></div>
+		</td>
+		<td></td>
+		<td></td>
+		<td></td>
+
+	</tr>
+	<tr id="5">
+		<td>
+		<div class="greenblock" align="center" id="B1"><label
+			class="txt" style="color: #F8F8F8"> B1 </label></div>
+		</td>
+		<td>
+		<div class="greenblock" align="center" id="B2"><label
+			class="txt" style="color: #F8F8F8"> B2 </label></div>
+		</td>
+		<td></td>
+		<td></td>
+		<td>
+		<div class="redblock" align="center" id="A3"><label class="txt" style="color: #F8F8F8">
+		A3 </label></div>
+		</td>
+		<td>
+		<div class="yellowredblock" align="center" id="A4"><label
+			class="txt"> A4 </label></div>
+		</td>
+		<td>
+		<div class="yellowredblock" align="center" id="A4"><label
+			class="txt"> A12 </label></div>
+		</td>
+	</tr>
+	<tr id="6">
+		<td>
+		<div class="yellowredblock" align="center" id="B4"><label
+			class="txt"> B4 </label></div>
+		</td>
+
+		<td>
+		<div class="yellowredblock" align="center" id="B3"><label
+			class="txt"> B3 </label></div>
+		</td>
+		<td></td>
+		<td></td>
+		<td>
+		<div class="redblock" align="center" id="A5"><label class="txt" style="color: #F8F8F8">
+		A5 </label></div>
+		</td>
+		<td>
+		<div class="yellowredblock" align="center" id="A6"><label
+			class="txt"> A6 </label></div>
+		</td>
+		<td>
+		<div class="yellowredblock" align="center" id="A5"><label
+			class="txt"> A11 </label></div>
+		</td>
+	</tr>
+
+	<tr id="8">
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td class="redblock" colspan="2">
+		<div id="exit" width="100px" align="right" height="40px"><label
+			class="txtserv" style="color: #F8F8F8"> Exit </label></div>
+		
+		</td>
+	</tr>
+</table>
+<table><tr><td>&nbsp;</td></tr></table>
+<table bgcolor="#C0C0C0" align="center">
+			<tr>
+				<td><div class="blocksmall" style="background-color: #800000;" ></div><td><td> <label class="txt" style="font-size: 12px;"> Reserved </label></td>
+				<td><div class="blocksmall" style="background-color: #385E0F;" ></div></td><td><label class="txt" style="font-size: 12px;"> Available</label></td>
+				<td><div class="blocksmall" style="background-color: #EEC900;"></div></td><td><label class="txt" style="font-size: 12px;"> Occupied</label></td>
+
+			</tr>
+		</table>
+</div>
+
+
+
+<div id="dispmessage" style="display:none;font-family:Verdana; font-size:15px;color:#800000" align="center">Thank you ...Your order has been placed.</div>
+<div id="alertmessage" style="display:none;font-family:Verdana; font-size:15px;color:brown" align="center">Please select a Meal to Order.</div>
+</div>
+
+</div>
+
+
+</form>
+<div class="dock2" id="dock2">
+  <div class="dock-container2">
+   <a class="dock-item2" href="javascript:callhref('index1')"><span>Home</span><img src="images/dock/home.png" alt="Home" /></a> 
+<!--  <a class="dock-item2" href="javascript:call('gingerhotel')"><span>Ginger Hotels</span><img src="images/dock/ginger.png" alt="Ginger Hotels" /></a> -->
+  <!--<a class="dock-item2" href="javascript:callhref('socialnetworks')"><span>Social Networking</span><img src="images/dock/social.png" alt="Social Networking" /></a> 
+  <a class="dock-item2" href="javascript:callhref('news')"><span>Web Channels</span><img src="images/dock/webchannel.png" alt="Web Channels" /></a>
+  <a class="dock-item2" href="javascript:call('youtube')"><span>Youtube</span><img src="images/dock/youtube1.png" alt="InfoEntertainment" /></a>
+  <a class="dock-item2" href="javascript:callhref('newspaper')"><span>Newspaper</span><img src="images/dock/newspaper.png" alt="Info Entertainment" /></a>
+--><a class="dock-item2" href="javascript:callhref('feedback')"><span>Feedback</span><img src="images/dock/feedback.png" alt="Feedback" /></a>
+  <a class="dock-item2" href="javascript:callhref('spaReservation')"><span>Spa Reservation</span><img src="images/dock/spa.png" alt="Spa Reservation" /></a>
+  <a class="dock-item2" href="javascript:callhref('restaurant')"><span>Restaurant Booking</span><img src="images/dock/restaurant.png" alt="Restaurant Booking" /></a>
+  <a class="dock-item2" href="javascript:callhref('dispMessage')"><span>Inbox</span><img src="images/dock/message.png" alt="Messages" /></a>
+  <a class="dock-item2" href="javascript:callhref('pickDropService')"><span>Pick and Drop</span><img src="images/dock/pick.png" alt="Pick and Drop" /></a> 
+  <a class="dock-item2" href="javascript:callhref('invoice')"><span>Invoice</span><img src="images/dock/invoice.png" alt="Invoice" /></a>
+  <a class="dock-item2" href="javascript:callhref('emailLogin')"><span>Find Friends</span><img src="images/dock/friends.png" alt="Find Friends" /></a>
+   
+  </div>
+</div>
+
+</body>
+</html>

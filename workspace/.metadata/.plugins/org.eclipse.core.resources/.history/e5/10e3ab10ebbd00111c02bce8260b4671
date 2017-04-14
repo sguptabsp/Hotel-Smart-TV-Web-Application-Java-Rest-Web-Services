@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Availability of Rooms</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<script type="text/javascript" src="js/datetimepicker_css.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/keynav.js"></script>
+<script src="js/sliding_effect.js"></script>
+<script src="js/interface.js"></script>
+<script type="text/javascript">
+function call(text)
+{
+	var name=new Array("gingerhotel","facebook","twitter","linkedin","youtube","gingerfeedback","indiapress",
+			"onlinenewspapers","newspapers","allnewspapers");
+	var link=new Array("http://www.gingerhotels.com/",
+			"http://www.facebook.com",
+			"http://www.twitter.com",
+			"http://www.linkedin.com",
+			"http://www.youtube.com",
+			"http://www.gingerhotels.com/contactus/Customer_Feedback.aspx",
+			"http://www.indiapress.org/index.php/",
+			"http://www.onlinenewspapers.com/",
+			"http://newspapers.com/",
+			"http://allnewspapers.com/");
+	for(var i=0;i<name.length;i++)
+	{
+		if(text==name[i])
+		{
+			//window.location=link[i];
+			  //alert("link"+link[i]);
+			  window.open(link[i],'_blank');
+		}
+	}
+}
+function callhref(text)
+{
+	//alert(text);
+	if(text=="index1")
+	{
+		window.location.href=text+".jsp";
+	}
+	else	
+		window.location.href=text+".html";
+		//window.open(text+".html",'_blank');
+	//window.location.href=location of file on server
+}
+</script>
+<script type="text/javascript">
+	
+	$(document).ready(
+		function()
+		{
+			
+			$('#dock2').Fisheye(
+				{
+					maxWidth: 60,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container2',
+					itemWidth: 80,
+					proximity: 80,
+					alignment : 'left',
+					valign: 'bottom',
+					halign : 'center'
+				}
+			)
+		}
+	);
+
+</script>
+<script type="text/javascript">
+
+	
+
+	var state = 0;
+	function gup( url, name )
+	{
+	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
+	var regexS = "[\\?&]"+name+"=([^&#]*)"; 
+	var regex = new RegExp( regexS );  
+	var results = regex.exec(url);//regex.exec( window.location.href );  
+	if( results == null )   
+	return "";  
+	else   
+	return results[1];
+	}	
+	
+
+	
+</head>
+<style type="text/css">
+
+
+.sample {
+	border-width: 1px;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-style: outset;
+	border-color: gray;
+	
+}
+
+.heading {
+	color: black;
+	margin: 10px;
+	vertical-align: center;
+	text-align: center;
+	font-family: verdana;
+	font-size: 18px;
+	font-weight: bold;
+	color: black;
+	top: 10px;
+}
+
+.sample th {
+	color: black;
+	margin: 10px;
+	vertical-align: center;
+	background-color :  #FDEEF4;
+	text-align: center;
+	font-family: verdana;
+	font-size: 12px;
+	font-weight: medium;
+	color: black;
+	top: 10px;
+}
+
+.txt {
+	color: black;
+	margin: 10px;
+	text-align: center;
+	font-family: verdana;
+	font-size: 12px;
+	color: black;
+	top: 10px;
+}
+</style>
+<body onload="javascript:onDisplay();">
+<form name="spaReservation">
+
+<div style="margin: 50px 0px 20px 225px;">
+<table align="center">
+<tr>
+<td>&nbsp;</td>
+</tr>
+	<tr>
+        
+		<td colspan="7" class="heading">Spa Reservation</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+</table>
+<div id="displaySpa"></div>
+</br>
+<div id="messageId" align="center" style=" font-family: verdana; font-size :14px; color:#8B0000; font-weight: bold;"></div>
+</div>
+
+
+</form>
+<div class="dock2" id="dock2">
+  <div class="dock-container2">
+  <a class="dock-item2" href="javascript:callhref('index1')"><span>Home</span><img src="images/dock/home.png" alt="Home" /></a> 
+<!--  <a class="dock-item2" href="javascript:call('gingerhotel')"><span>Ginger Hotels</span><img src="images/dock/ginger.png" alt="Ginger Hotels" /></a> --><!--
+  <a class="dock-item2" href="javascript:callhref('socialnetworks')"><span>Social Networking</span><img src="images/dock/social.png" alt="Social Networking" /></a> 
+  <a class="dock-item2" href="javascript:callhref('news')"><span>Web Channels</span><img src="images/dock/webchannel.png" alt="Web Channels" /></a>
+  <a class="dock-item2" href="javascript:call('youtube')"><span>Youtube</span><img src="images/dock/youtube1.png" alt="InfoEntertainment" /></a>
+ <a class="dock-item2" href="javascript:callhref('newspaper')"><span>Newspaper</span><img src="images/dock/newspaper.png" alt="Info Entertainment" /></a> -->
+<a class="dock-item2" href="javascript:callhref('feedback')"><span>Feedback</span><img src="images/dock/feedback.png" alt="Feedback" /></a>
+  <a class="dock-item2" href="javascript:callhref('invoice')"><span>Invoice</span><img src="images/dock/invoice.png" alt="Invoice" /></a>
+  <a class="dock-item2" href="javascript:callhref('restaurant')"><span>Restaurant Booking</span><img src="images/dock/restaurant.png" alt="Restaurant Booking" /></a>
+  <a class="dock-item2" href="javascript:callhref('dispMessage')"><span>Inbox</span><img src="images/dock/message.png" alt="Messages" /></a>
+  <a class="dock-item2" href="javascript:callhref('pickDropService')"><span>Pick and Drop</span><img src="images/dock/pick.png" alt="Pick and Drop" /></a>
+  <a class="dock-item2" href="javascript:callhref('emailLogin')"><span>Find Friends</span><img src="images/dock/friends.png" alt="Find Friends" /></a> 
+  </div>
+</div>
+
+</body>
+</html>
