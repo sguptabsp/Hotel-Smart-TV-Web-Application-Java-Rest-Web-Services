@@ -1,5 +1,0 @@
-INDEX VERSION 1.126
-C:\Users\Shruti\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\844819121.index
-\Taj
-C:\Users\Shruti\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1200482581.index
-\Checkout
